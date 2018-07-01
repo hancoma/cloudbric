@@ -1,0 +1,17 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "클라우드브릭",
+  "short_name": "클라우드브릭",
+  "version": "com.cloudbric.hancoma",
+  "description": "클라우드브릭",
+  "author": "김대경",
+  "icons": [
+    {
+      "src": "icon.png",
+      "type": "image/png",
+      "sizes": "undefinedxundefined"
+    }
+  ],
+  "start_url": "index.html"
+}
