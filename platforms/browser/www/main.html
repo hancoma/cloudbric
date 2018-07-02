@@ -58,6 +58,9 @@
         </div>
     </div>
 </div>
+<div class="popup popup-tablet-fullscreen" id="pop_contents">
+    
+  </div>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script src="assets-mobile/framework7/js/framework7.min.js"></script>
 <script src="assets-mobile/js/routes.js?2018051402"></script>
@@ -73,6 +76,25 @@
      $(".page-content").html(data);
     
    });
+   function pop_contents(domain_idx) {
+    var domain_idx=domain_idx;
+    app.popup.open(".popup"); // 팝업창 열기
+      $.post("http://topnailart.iwinv.net/site_display.php",
+   {
+        domain_idx:domain_idx
+    
+       },
+   function(data){
+     $("#pop_contents").html(data);
+    
+   });
+
+   }
+   function pop_close(){
+    app.popup.close(".popup");
+    $("#pop_contents").html('');
+
+   }
 </script>
 </body>
 </html>
