@@ -28,7 +28,7 @@
                         <div class="title sliding">My Sites</div>
                     </div>
                 </div>
-                <div class="page-content">
+                <div class="page-content" id="site_list">
                                        
                                     </div>
             </div>
@@ -60,6 +60,262 @@
 </div>
 <div class="popup popup-tablet-fullscreen" id="pop_contents">
     
+
+
+    <div class="views tabs ios-edges">
+        <div id="view-home" class="view view-main tab tab-active">
+            
+        <div class="page page-current" data-name="dashboard">
+        <div class="navbar">
+            <div class="navbar-inner sliding">
+                <div class="left">
+                    <a href="#" class="link back" onclick="pop_close();">
+                        <i class="icon icon-back"></i>
+                        
+                    </a>
+                </div>
+                <div class="title">Dashboard</div>
+                <div class="right">
+                    <a href="#" data-popup=".setting-popup" class="popup-open link">
+                        <i class="icon f7-icons">gear</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+<div class="popup setting-popup">
+            <div class="view">
+                <div class="page">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <!-- 팝업 타이틀 가운데 정렬을 위해 안 보이는 아이콘 -->
+                            <div class="left">
+                                <a class="link popup-close">
+                                <i class="icon color-blue material-icons ">close</i>
+                                </a>
+                            </div>
+                            <div class="title">Settings</div>
+                            <div class="right">
+                                <!-- Link to close popup -->
+                                <a class="link popup-close"  data-popup=".setting-popup">
+                                    <i class="icon material-icons">close</i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div class="block-title">General <div class="float-right"><?=$obj['result_info']['domain']?></div></div>
+                        <div class="list simple-list">
+                            <ul>
+                                <li>
+                                    <span>Bypass Mode</span>
+                                    <label class="toggle toggle-init color-red">
+                                        <input type="checkbox">
+                                        <span class="toggle-icon"></span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="block-title">Redirection Settings</div>
+                        <div class="list simple-list">
+                            <ul>
+                                <li>
+                                    <span>Redirect to www</span>
+                                    <label class="toggle toggle-init color-blue">
+                                        <input type="checkbox" checked="checked">
+                                        <span class="toggle-icon"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <span>Redirect to HTTPS</span>
+                                    <label class="toggle toggle-init color-blue">
+                                        <input type="checkbox" checked="checked">
+                                        <span class="toggle-icon"></span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            ...
+        </div>
+
+        <div class="tabs" style="overflow-y: auto;">
+            <div id="tab-visits" class="page-content tab tab-active" style="overflow-y: auto;">
+                <div class="list">
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><img src="assets-mobile/img/<?=$status_image?>.png" alt="<?=$status_image?>"></div>
+                                <div class="item-inner">
+                                    <div class="item-title domain-status"><?=$status_image?></div>
+                                    <div class="item-after"><?=$obj['result_info']['domain']?></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="block">
+                    <div class="segmented">
+                        <a href="#tab-visits" class="button button-round button-outline button-active tab-link">Visits</a>
+                        <a href="#tab-attacks" class="button button-round button-outline color-red tab-link">Attacks</a>
+                    </div>
+                </div>
+                <div class="block block-strong block-total-data">
+                    <div class="row">
+                        <div class="col total-traffic">
+                            <dl class="total-data-list">
+                                <dt class="">Total Traffic</dt>
+                                <dd>May</dd>
+                            </dl>
+                            <div class="total-data-traffic"><?=intval($obj['result_info']['traffic']/1024/1024/1024)?>GB / <?=intval($obj['result_info']['limit_traffic']/1024/1024/1024)?>GB</div>
+                        </div>
+                        <div class="col total-visits">
+                            <dl class="total-data-list">
+                                <dt>Total Visits</dt>
+                                <dd>May</dd>
+                            </dl>
+                            <div class="total-data-visits"><?=$total_visit?></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block-title">Total Visits</div>
+                <div class="block block-strong" style="width:100%;">
+                    <div id="chart-visits" class="c3" style="max-height: 320px; position: relative; ">
+                        
+                    </div>
+                </div>
+                <div class="block-title">Top Countries</div>
+                <div class="block block-strong">
+                    <div id="chart-countries" class="c3" style="max-height: 320px; position: relative;">
+                    </div>
+                </div>
+                <div class="block-title">Traffic By Day</div>
+                <div class="block block-strong">
+                    <div id="chart-traffic" class="c3" style="max-height: 320px; position: relative;">
+                    </div>
+                </div>
+            </div>
+            <div id="tab-attacks" class="page-content tab" style="overflow-y: auto;">
+                <div class="list">
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                                  <div class="item-media"><img src="assets-mobile/img/<?=$status_image?>.png" alt="<?=$status_image?>"></div>
+                                <div class="item-inner">
+                                    <div class="item-title domain-status"><?=$status_image?></div>
+                                    <div class="item-after"><?=$obj['result_info']['domain']?></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="block">
+                    <div class="segmented">
+                        <a href="#tab-visits" class="button button-round button-outline tab-link">Visits</a>
+                        <a href="#tab-attacks" class="button button-round button-outline button-active color-red tab-link">Attacks</a>
+                    </div>
+                </div>
+                <div class="block block-strong block-total-data">
+                    <div class="row">
+                        <div class="col total-traffic">
+                            <dl class="total-data-list">
+                                <dt>Total Traffic</dt>
+                                <dd>May</dd>
+                            </dl>
+                            <div class="total-data-traffic"><?=intval($obj['result_info']['traffic']/1024/1024/1024)?>GB / <?=intval($obj['result_info']['limit_traffic']/1024/1024/1024)?>GB</div>
+                        </div>
+                        <div class="col total-visits">
+                            <dl class="total-data-list">
+                                <dt>Total Attacks</dt>
+                                <dd>May</dd>
+                            </dl>
+                            <div class="total-data-attacks"><?=$total_attacks?></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block-title">Total Attacks</div>
+                <div class="block block-strong">
+                    <div id="chart-attacks" class="c3" style="max-height: 320px; position: relative;">
+
+                </div>
+                </div>
+                <div class="block-title">Top Ips</div>
+                <div class="block block-strong">
+                    <div id="chart-ips" class="c3" style="max-height: 320px; position: relative;">
+                        
+                    </div>
+                </div>
+                <div class="block-title">Attack Purpose</div>
+                <div class="block block-strong">
+                    <div id="chart-purpose" class="c3" style="max-height: 320px; position: relative;">
+                    </div>
+                </div>
+                <div class="block-title">Attack URLs</div>
+                <div class="block block-strong">
+                    <div id="chart-urls" class="c3" style="max-height: 320px; position: relative;">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div></div>
+       
+        <div id="view-myaccount" class="view tab"><div class="page page-current" data-name="myaccount">
+        <div class="navbar">
+            <div class="navbar-inner sliding">
+                <div class="title">My Account</div>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="list">
+                <ul>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">E-mail Address : staff@greenolivetree.net</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="block">
+                <div class="row">
+                    <button class="col button button-fill color-gray">Log Out</button>
+                </div>
+            </div>
+        </div>
+    </div></div>
+
+        <div id="view-settings" class="view tab"></div>
+
+        <div class="toolbar tabbar toolbar-bottom-md">
+            <div class="toolbar-inner">
+                <a href="/mysites" class="tab-link external">
+                    <i class="icon f7-icons ios-only">list</i>
+                    <i class="icon material-icons md-only">home</i>
+                </a>
+                <a href="#view-home" class="tab-link">
+                    <i class="icon material-icons">dashboard</i>
+                </a>
+                <a href="#view-alarm" class="tab-link">
+                    <i class="icon f7-icons">bell<span class="badge color-red">3</span></i>
+                </a>
+                <a href="#view-myaccount" class="tab-link">
+                    <i class="icon f7-icons ios-only">person</i>
+                    <i class="icon material-icons md-only">person</i>
+                </a>
+            <span class="tab-link-highlight" style="width: 25%;"></span></div>
+        </div>
+    </div>
+
+      
+
+
+
   </div>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script src="assets-mobile/framework7/js/framework7.min.js"></script>
@@ -67,25 +323,25 @@
 <script src="assets-mobile/js/app.js?2018051402"></script>
 <script>
   
-  $(".page-content").html('');
+  $("#site_list").html('');
    $.post("http://topnailart.iwinv.net/sitelist.php",
    {
     
        },
    function(data){
-     $(".page-content").html(data);
+     $("#site_list").html(data);
     
    });
    function pop_contents(domain_idx) {
     var domain_idx=domain_idx;
-    app.popup.open(".popup"); // 팝업창 열기
+    app.popup.open("#pop_contents"); // 팝업창 열기
       $.post("http://topnailart.iwinv.net/site_display.php",
    {
         domain_idx:domain_idx
     
        },
    function(data){
-     $("#pop_contents").html(data);
+     //$("#pop_contents").html(data);
     
    });
 
