@@ -149,10 +149,10 @@
                     <ul>
                         <li>
                             <div class="item-content">
-                                <div class="item-media"><img src="assets-mobile/img/<?=$status_image?>.png" alt="<?=$status_image?>"></div>
+                                <div class="item-media" id="status_image"></div>
                                 <div class="item-inner">
-                                    <div class="item-title domain-status"><?=$status_image?></div>
-                                    <div class="item-after"><?=$obj['result_info']['domain']?></div>
+                                    <div class="item-title domain-status" id="status"></div>
+                                    <div class="item-after" id="domain_name"></div>
                                 </div>
                             </div>
                         </li>
@@ -171,14 +171,14 @@
                                 <dt class="">Total Traffic</dt>
                                 <dd>May</dd>
                             </dl>
-                            <div class="total-data-traffic"><?=intval($obj['result_info']['traffic']/1024/1024/1024)?>GB / <?=intval($obj['result_info']['limit_traffic']/1024/1024/1024)?>GB</div>
+                            <div class="total-data-traffic" id="limit_traffic" ><?=intval($obj['result_info']['traffic']/1024/1024/1024)?>GB / <?=intval($obj['result_info']['limit_traffic']/1024/1024/1024)?>GB</div>
                         </div>
                         <div class="col total-visits">
                             <dl class="total-data-list">
                                 <dt>Total Visits</dt>
                                 <dd>May</dd>
                             </dl>
-                            <div class="total-data-visits"><?=$total_visit?></div>
+                            <div class="total-data-visits" id="total_visit"></div>
                         </div>
                     </div>
                 </div>
@@ -204,10 +204,10 @@
                     <ul>
                         <li>
                             <div class="item-content">
-                                  <div class="item-media"><img src="assets-mobile/img/<?=$status_image?>.png" alt="<?=$status_image?>"></div>
+                                <div class="item-media" id="status_image_a"></div>
                                 <div class="item-inner">
-                                    <div class="item-title domain-status"><?=$status_image?></div>
-                                    <div class="item-after"><?=$obj['result_info']['domain']?></div>
+                                    <div class="item-title domain-status" id="status_a"></div>
+                                    <div class="item-after" id="domain_name_a"></div>
                                 </div>
                             </div>
                         </li>
@@ -226,14 +226,14 @@
                                 <dt>Total Traffic</dt>
                                 <dd>May</dd>
                             </dl>
-                            <div class="total-data-traffic"><?=intval($obj['result_info']['traffic']/1024/1024/1024)?>GB / <?=intval($obj['result_info']['limit_traffic']/1024/1024/1024)?>GB</div>
+                            <div class="total-data-traffic" id="limit_traffic_a" ></div>
                         </div>
                         <div class="col total-visits">
                             <dl class="total-data-list">
                                 <dt>Total Attacks</dt>
                                 <dd>May</dd>
                             </dl>
-                            <div class="total-data-attacks"><?=$total_attacks?></div>
+                            <div class="total-data-attacks" id="total_attack"></div>
                         </div>
                     </div>
                 </div>
@@ -334,21 +334,124 @@
    });
    function pop_contents(domain_idx) {
     var domain_idx=domain_idx;
+    
     app.popup.open("#pop_contents"); // 팝업창 열기
-      $.post("http://topnailart.iwinv.net/site_display.php",
+      $.post("http://topnailart.iwinv.net/site_display_data.php",
    {
         domain_idx:domain_idx
     
        },
    function(data){
+    console.log(data);
+    var site_data = JSON.parse(data);
+   
+    switch (site_data.status) {
+    case 'Protected':
+                                        status_image = 'protected';
+                                        break;
+                                    case 'Bypass':
+                                        status_image = 'bypass';
+                                        break;
+                                    case 'Pending':
+                                        status_image = 'pending';
+                                        break;
+                                    case 'Deleting':
+                                        status_image = 'deleting';
+                                        break;
+                                    case 'Disconnected':
+                                        status_image = 'disconnected';
+                                        break;
+}
+var status_image_name="<img src='assets-mobile/img/"+status_image+".png' alt='"+status_image+"'>";
+ $("#domain_name").html(site_data.domain);
+$("#status_image").html(status_image_name);
+$("#status").html(status_image);
+ $("#domain_name_a").html(site_data.domain);
+$("#status_image_a").html(status_image_name);
+$("#status_a").html(status_image);
+var traffic=parseInt(site_data.traffic/1024/1024/1024);
+var limit_traffic=parseInt(site_data.limit_traffic/1024/1024/1024);
+
+$("#limit_traffic").html(traffic+"G/"+limit_traffic+"G");
+$("#limit_traffic_a").html(traffic+"G/"+limit_traffic+"G")
+ 
+ 
      //$("#pop_contents").html(data);
     
    });
+   // 방문자 
+
+       $.post("http://topnailart.iwinv.net/site_visit_data.php",
+   {
+        domain_idx:domain_idx
+    
+       },
+   function(data){
+   
+    var visit_data = JSON.parse(data);
+   
+var total_visit=visit_data.total_count.visits;
+var total_attack=visit_data.total_count.attacks;
+ $("#total_visit").html(total_visit);
+$("#total_attack").html(total_attack);
+
+ // 차트 
+ var chart = c3.generate({
+    bindto: '#chart-visits',
+   data: {
+    json: visit_data.total_log
+        
+    ,
+    type: 'area-spline',
+    groups:[['visits']],
+    keys: {
+      x: 'date',
+      value: ["visits"]
+    }
+  },
+  axis: {
+    x: {
+      type: 'timeseries',
+            tick: {
+                format: '%d'
+            }
+    }
+  }
+});
+
+
+ // 공격차트 
+ var chart = c3.generate({
+    bindto: '#chart-attacks',
+   data: {
+    json: visit_data.total_log
+        
+    ,
+    type: 'area-spline',
+    groups:[['attacks']],
+    keys: {
+      x: 'date',
+      value: ["attacks"]
+    }
+  },
+  axis: {
+    x: {
+      type: 'timeseries',
+            tick: {
+                format: '%d'
+            }
+    }
+  }
+});
+
+    
+   });
+
 
    }
    function pop_close(){
-    app.popup.close(".popup");
-    $("#pop_contents").html('');
+    app.popup.close("#pop_contents");
+    
 
    }
 </script>
