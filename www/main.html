@@ -447,6 +447,55 @@ $("#total_attack").html(total_attack);
     
    });
 
+//top_ips
+
+ $.post("http://topnailart.iwinv.net/site_top_ips.php",
+   {
+        domain_idx:domain_idx
+    
+       },
+   function(data){
+var ips_data = $.parseJSON(data);
+    
+ var chartIps = c3.generate({
+                    bindto: '#chart-ips',
+                    data: {
+                        json: ips_data,
+                        keys: {
+                            x: 'ip',
+                            value: ['count']
+                        },
+                        type: 'bar',
+                        colors: {
+                            count: '#d62728'
+                        },
+                        empty: {
+                            label: {
+                                text: "No Data"
+                            }
+                        }
+                    },
+                    axis: {
+                        x: {
+                            type: 'category'
+                        },
+                        y: {
+                            tick: {
+                                format: function(d) {
+                                    return d.toFixed(0);
+                                },
+                                count: 5
+                            }
+                        },
+                        rotated: true,
+                    },
+                    bar: {
+                        width: 20
+                    }
+                });
+});
+
+//
 
 //chart-countries
 
@@ -457,7 +506,7 @@ $("#total_attack").html(total_attack);
        },
    function(data){
 var countries_data = $.parseJSON(data);
-alert(data);
+
     var chartCountries = c3.generate({
                     bindto: '#chart-countries',
                     data: {
@@ -481,9 +530,88 @@ alert(data);
 
 });
 
-//
+
+// traffic by day
+ $.post("http://topnailart.iwinv.net/site_traffic_day.php",
+   {
+        domain_idx:domain_idx
+    
+       },
+   function(data){
+var Traffic_data = $.parseJSON(data);
+var chartTraffic = c3.generate({
+                    bindto: '#chart-traffic',
+                    padding: {
+                        left: 60
+                    },
+                    data: {
+                        json: Traffic_data,
+                        keys: {
+                            x: 'date',
+                            value: ['traffic']
+                        },
+                        type: 'bar'
+                    },
+                    axis: {
+                        x: {
+                            type: 'timeseries',
+                            tick: {
+                                format: '%m/%d',
+                                count: 7
+                            }
+                        },
+                        y: {
+                            tick: {
+                                format: function(d) {
+                                    return (d / 1024 / 1024).toFixed(1) + 'MB';
+                                },
+                                count: 5
+                            }
+                        }
+                    },
+                    bar: {
+                        width: {
+                            ratio: 0.1
+                        }
+                    }
+                });
+
+});
+
+
+ // attack_purpose.php
+ $.post("http://topnailart.iwinv.net/site_attack_purpose.php",
+   {
+        domain_idx:domain_idx
+    
+       },
+   function(data_purpose) {
+    alert(data_purpose);
+var Purpose_data = $.parseJSON(data_purpose);
+
+
+var json = {"ug":["K","M2","M3","M4"],"wtv":[10,20,35,60]};
+var pieJson = {};
+json.ug.forEach(function (ug, index) {
+  pieJson[ug] = json.wtv[index];
+});
+
+var chart = c3.generate({
+     bindto: '#chart-purpose',
+  data: {
+    // iris data from R
+    json: pieJson,
+    type : 'pie',
+  }
+});
+
+
+});
 
    }
+
+
+
    function pop_close(){
     app.popup.close("#pop_contents");
     
