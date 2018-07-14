@@ -448,6 +448,41 @@ $("#total_attack").html(total_attack);
    });
 
 
+//chart-countries
+
+ $.post("http://topnailart.iwinv.net/site_top_countries.php",
+   {
+        domain_idx:domain_idx
+    
+       },
+   function(data){
+var countries_data = $.parseJSON(data);
+alert(data);
+    var chartCountries = c3.generate({
+                    bindto: '#chart-countries',
+                    data: {
+                        json: countries_data,
+                        keys: {
+                            x: 'country',
+                            value: ['count']
+                        },
+                        type: 'bar'
+                    },
+                    axis: {
+                        x: {
+                            type: 'category'
+                        },
+                        rotated: true
+                    },
+                    bar: {
+                        width: 20
+                    }
+                });
+
+});
+
+//
+
    }
    function pop_close(){
     app.popup.close("#pop_contents");
