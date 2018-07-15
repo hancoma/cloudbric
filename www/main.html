@@ -586,27 +586,94 @@ var chartTraffic = c3.generate({
     
        },
    function(data_purpose) {
-    alert(data_purpose);
+ 
 var Purpose_data = $.parseJSON(data_purpose);
 
 
-var json = {"ug":["K","M2","M3","M4"],"wtv":[10,20,35,60]};
+var json = Purpose_data;
 var pieJson = {};
-json.ug.forEach(function (ug, index) {
-  pieJson[ug] = json.wtv[index];
-});
-
-var chart = c3.generate({
-     bindto: '#chart-purpose',
-  data: {
-    // iris data from R
-    json: pieJson,
-    type : 'pie',
-  }
+json.purpose.forEach(function (purpose, index) {
+  pieJson[purpose] = json.count[index];
 });
 
 
+ var chartPurpose = c3.generate({
+                    bindto: '#chart-purpose',
+                    data: {
+                        json: pieJson,
+                        type: 'pie',
+                        empty: {
+                            label: {
+                                text: "No Data"
+                            }
+                        }
+                    },
+                    color: {
+                        pattern: ['#d62728', '#ff7f0e', '#8c564b', '#ffbb78', '#ff9896', '#7f7f7f', '#c7c7c7']
+                    },
+                    pie: {
+                        label: {
+                            format: function (value) {
+                                return value;
+                            }
+                        }
+                    }
+                });
+
+
+
+
+
 });
+
+
+  // attack_url.php
+ $.post("http://topnailart.iwinv.net/site_attack_url.php",
+   {
+        domain_idx:domain_idx
+    
+       },
+   function(data) {
+    alert(data);
+var url_data = $.parseJSON(data);
+
+
+var json = url_data;
+var pieJson = {};
+json.uri.forEach(function (uri, index) {
+  pieJson[uri] = json.count[index];
+});
+
+
+var chartUrls = c3.generate({
+                    bindto: '#chart-urls',
+                    data: {
+                        json: pieJson,
+                        type: 'pie',
+                        empty: {
+                            label: {
+                                text: "No Data"
+                            }
+                        }
+                    },
+                    color: {
+                        pattern: ['#d62728', '#ff7f0e', '#8c564b', '#ffbb78', '#ff9896', '#7f7f7f', '#c7c7c7']
+                    },
+                    pie: {
+                        label: {
+                            format: function (value) {
+                                return value;
+                            }
+                        }
+                    }
+                });
+
+
+
+
+
+});
+
 
    }
 
