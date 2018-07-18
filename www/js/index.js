@@ -114,7 +114,7 @@ push.on('error', function(e) {
 
 //start_app();
 
-  
+   location.replace('main.html') ;
 
         
     }
@@ -123,7 +123,7 @@ push.on('error', function(e) {
 
 function start_app() {
     // 로그인 처리 가 빠져 있기 때문에 바로 연결
-     location.replace('main.html') ;
+    
      
 }
  
