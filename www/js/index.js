@@ -112,7 +112,7 @@ push.on('error', function(e) {
     alert_msg("경고",e.message);
 });
 
-start_app();
+//start_app();
 
   
 
