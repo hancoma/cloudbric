@@ -112,9 +112,9 @@ push.on('error', function(e) {
     alert_msg("경고",e.message);
 });
 
-//start_app();
 
-   location.replace('main.html') ;
+
+  
 
         
     }
@@ -123,7 +123,7 @@ push.on('error', function(e) {
 
 function start_app() {
     // 로그인 처리 가 빠져 있기 때문에 바로 연결
-    
+   location.replace('main.html') ;  
      
 }
  
@@ -146,15 +146,14 @@ function alert_msg(title,msg,btn) {
 function reg_save(reg_id) {
       var reg_id=reg_id;
       var deviceid=device.uuid;
-       
-         $.post("https://topnailart.iwinv.net/gcm_reg_app.php",
+         $.post("http://topnailart.iwinv.net/reg_id_save.php",
    {
     reg_id:reg_id,
     uuid:deviceid
    },
    function(data){
     var data;
-    
-   //  alert("ok");
+    start_app();
+   
    })
        } 
