@@ -95,11 +95,10 @@ push.on('registration', function(data) {
 });
 
 push.on('notification', function(data) {
+    var title="Cloudbric message";
+    alert_msg(title,data.message)
   // alert(data.message);
  // display_call_info(data.message);
-    modal = UIkit.modal.blockUI(data.message); 
-       setTimeout(function(){ modal.hide() }, 1000)
- 
   //alert_msg("알람",data.message);
  
  
