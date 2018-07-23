@@ -97,16 +97,15 @@ push.on('registration', function(data) {
 });
 
 push.on('notification', function(data) {
-    var title="Cloudbric message";
-    alert_msg(title,data.message)
-  // alert(data.message);
- // display_call_info(data.message);
-  //alert_msg("알람",data.message);
- 
- 
-    
-   
+  console.log('notification event');
+  navigator.notification.alert(
+    data.message,         // message
+    null,                 // callback
+    data.title,           // title
+    'Ok'                  // buttonName
+  );
 });
+
 
 push.on('error', function(e) {
     // e.message
