@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="assets-mobile/css/icons.css">
     <link rel="stylesheet" href="assets-mobile/css/app.css?2018051402">
     <link rel="stylesheet" href="assets-mobile/css/c3.min.css">
+    <script type="text/javascript" charset="utf-8" src="js/PushNotification.js"></script>
+     <script type="text/javascript" src="cordova.js"></script>
     <script src="assets-mobile/js/d3.v4.min.js" charset="utf-8"></script>
     <script src="assets-mobile/js/c3.min.js" charset="utf-8"></script>
 
@@ -319,12 +321,13 @@
 
   </div>
 <script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
 <script src="assets-mobile/framework7/js/framework7.min.js"></script>
 <script src="assets-mobile/js/routes.js?2018051402"></script>
 <script src="assets-mobile/js/app.js?2018051402"></script>
 
 <script>
-  
+
   $("#site_list").html('');
    $.post("http://topnailart.iwinv.net/sitelist.php",
    {
@@ -332,6 +335,8 @@
        },
    function(data){
      $("#site_list").html(data);
+     alert_msg("title","msg");
+   alert_msg_7("title","msg");
     
    });
    function pop_contents(domain_idx) {

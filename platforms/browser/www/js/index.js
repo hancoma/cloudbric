@@ -126,21 +126,6 @@ function start_app() {
      
 }
  
-function alert_msg(title,msg,btn) {
-    // alert 대신 사용할 함수 
-    var title=title;
-    var msg=msg;
-    var btn=btn;
-
-      navigator.notification.alert(
-                  msg,  // message
-                  alertend,         // callback
-                  title,            // title
-                  btn                  // buttonName
-              );
-
-
-}
 
 function reg_save(reg_id) {
       var reg_id=reg_id;
