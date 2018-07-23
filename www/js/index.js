@@ -96,16 +96,18 @@ push.on('registration', function(data) {
    
 });
 
-push.on('notification', function(data) {
-  console.log('notification event');
-  navigator.notification.alert(
-    data.message,         // message
-    null,                 // callback
-    data.title,           // title
-    'Ok'                  // buttonName
-  );
-});
 
+push.on('notification', function(data) {
+    
+    alert_msg(data.title,data.message)
+  // alert(data.message);
+ // display_call_info(data.message);
+  //alert_msg("알람",data.message);
+ 
+ 
+    
+   
+});
 
 push.on('error', function(e) {
     // e.message
