@@ -54,22 +54,59 @@ var app = {
     onmain : function() {
     var reg_id=device.uuid;
        // 기기 번호 검출 
-chat_show();
-        
+
+    push = PushNotification.init({
+    android: {
+        senderID: "754220946157"
+    },
+    browser: {
+        pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+    },
+    ios: {
+        alert: "true",
+        badge: "true",
+        sound: "true"
+    },
+    windows: {}
+});
+          PushNotification.hasPermission(function(data) {
+    if (data.isEnabled) {
+        console.log('isEnabled');
+    }
+});
+
+
+push.on('registration', function(data) {
     
+     // reg_save(data.registrationId);
+  
+   
+   
+});
+
+push.on('notification', function(data) {
+    var title="Cloudbric message";
+    alert_msg(title,data.message)
+  // alert(data.message);
+ // display_call_info(data.message);
+  //alert_msg("알람",data.message);
+ 
+ 
+    
+   
+});
+
+push.on('error', function(e) {
+    // e.message
+    alert_msg("경고",e.message);
+});
+
        
 }
 };
 
 
-function successCallback(result) {
- alert_msg('전화',result.phoneNumber);
- telephone=result.phoneNumber;
-}
- 
-function errorCallback(error) {
-  console.log(error);
-}
+
  
 
 

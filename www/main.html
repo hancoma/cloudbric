@@ -322,6 +322,7 @@
   </div>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
 <script src="assets-mobile/framework7/js/framework7.min.js"></script>
 <script src="assets-mobile/js/routes.js?2018051402"></script>
 <script src="assets-mobile/js/app.js?2018051402"></script>
@@ -335,8 +336,7 @@
        },
    function(data){
      $("#site_list").html(data);
-     alert_msg("title","msg");
-   alert_msg_7("title","msg");
+   
     
    });
    function pop_contents(domain_idx) {
@@ -692,45 +692,7 @@ var chartUrls = c3.generate({
 
    }
 
-     push = PushNotification.init({
-    android: {
-        senderID: "754220946157"
-    },
-    browser: {
-        pushServiceURL: 'http://push.api.phonegap.com/v1/push'
-    },
-    ios: {
-        alert: "true",
-        badge: "true",
-        sound: "true"
-    },
-    windows: {}
-});
-          PushNotification.hasPermission(function(data) {
-    if (data.isEnabled) {
-        console.log('isEnabled');
-    }
-});
-
-
-
-
-push.on('notification', function(data) {
-    var title="Cloudbric message";
-    alert_msg(title,data.message)
-  // alert(data.message);
- // display_call_info(data.message);
-  //alert_msg("알람",data.message);
- 
- 
     
-   
-});
-
-push.on('error', function(e) {
-    // e.message
-    alert_msg("경고",e.message);
-});
 
 </script>
 </body>
