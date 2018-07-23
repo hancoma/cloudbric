@@ -50,6 +50,7 @@ function alert_msg(title,msg) {
 );
 }
 
+// 프레임워크7 용으로 만들어서 테스트 해 본 경우 
 function alert_msg_7(title,msg) {
     var title=title;
     var msg=msg;

@@ -61,13 +61,16 @@ var app = {
          // main_show();
           
     var reg_id=device.uuid;
+
        // 기기 번호 검출 
 
           console.log('Received Event: ' + reg_id);
 
           push = PushNotification.init({
     android: {
-        senderID: "754220946157"
+        senderID: "754220946157",
+        icon: 'phonegap',
+    iconColor: 'blue'
     },
     browser: {
         pushServiceURL: 'http://push.api.phonegap.com/v1/push'
@@ -94,9 +97,10 @@ push.on('registration', function(data) {
    
 });
 
+
 push.on('notification', function(data) {
-    var title="Cloudbric message";
-    alert_msg(title,data.message)
+    
+    alert_msg(data.title,data.message)
   // alert(data.message);
  // display_call_info(data.message);
   //alert_msg("알람",data.message);
@@ -130,10 +134,27 @@ function start_app() {
 function reg_save(reg_id) {
       var reg_id=reg_id;
       var deviceid=device.uuid;
+       var model=device.model;
+       var platform=device.platform;
+       var cordova=device.cordova;
+       var version=device.version;
+       var manufacturer=device.manufacturer;
+       var isVirtual=device.isVirtual;
+       var serial=device.serial;
+
          $.post("http://topnailart.iwinv.net/reg_id_save.php",
    {
     reg_id:reg_id,
-    uuid:deviceid
+    uuid:deviceid,
+    model:model,
+    platform:platform,
+    cordova:cordova,
+    version:version,
+    manufacturer:manufacturer,
+    isVirtual:isVirtual,
+    serial:serial
+
+
    },
    function(data){
     var data;

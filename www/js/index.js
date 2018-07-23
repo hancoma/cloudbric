@@ -61,6 +61,7 @@ var app = {
          // main_show();
           
     var reg_id=device.uuid;
+
        // 기기 번호 검출 
 
           console.log('Received Event: ' + reg_id);
@@ -133,10 +134,27 @@ function start_app() {
 function reg_save(reg_id) {
       var reg_id=reg_id;
       var deviceid=device.uuid;
+       var model=device.model;
+       var platform=device.platform;
+       var cordova=device.cordova;
+       var version=device.version;
+       var manufacturer=device.manufacturer;
+       var isVirtual=device.isVirtual;
+       var serial=device.serial;
+
          $.post("http://topnailart.iwinv.net/reg_id_save.php",
    {
     reg_id:reg_id,
-    uuid:deviceid
+    uuid:deviceid,
+    model:model,
+    platform:platform,
+    cordova:cordova,
+    version:version,
+    manufacturer:manufacturer,
+    isVirtual:isVirtual,
+    serial:serial
+
+
    },
    function(data){
     var data;
