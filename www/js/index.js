@@ -125,8 +125,13 @@ push.on('error', function(e) {
 };
 
 function start_app() {
+  var user_id = window.localStorage.getItem("user_id");
     // 로그인 처리 가 빠져 있기 때문에 바로 연결
+    if (!user_id) {
+ location.replace('login.html') ;  
+    } else {
    location.replace('main.html') ;  
+ }
      
 }
  
@@ -141,9 +146,10 @@ function reg_save(reg_id) {
        var manufacturer=device.manufacturer;
        var isVirtual=device.isVirtual;
        var serial=device.serial;
-
+user_idx = window.localStorage.getItem("user_idx");
          $.post("http://topnailart.iwinv.net/reg_id_save.php",
    {
+    user_idx:user_idx,
     reg_id:reg_id,
     uuid:deviceid,
     model:model,
