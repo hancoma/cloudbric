@@ -105,6 +105,8 @@ function logout() {
   window.localStorage.clear();
     window.localStorage.removeItem("member_srl");
   window.localStorage.clear();
+  window.localStorage.removeItem("user_idx");
+  window.localStorage.clear();
   user_id=null;
   member_srl=null;
    location.replace('login.html') ;
