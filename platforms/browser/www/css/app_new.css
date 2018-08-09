@@ -1,0 +1,178 @@
+/* Your app styles here */
+.ios .tabbar-labels .tab-link:not(.tab-link-active) .icon-ios-fill {
+  display: none;
+}
+.ios .tabbar-labels .tab-link.tab-link-active .icon:not(.icon-ios-fill) {
+  display: none;
+}
+.tab-link-active .text-color-black {
+    color: #2196f3 !important;
+}
+
+/* Login */
+.md .login-screen-title { font-weight: 700; font-size: 22px; color: #2196F3 }
+.login-screen-content { display: flex; flex-direction: column; padding: 30px; align-items: center; justify-content: center; }
+.sign-option-list li { margin-bottom: 10px }
+.sign-option-list .sign-in-item { margin-bottom: 16px }
+.sign-option-list .check-keep-sign { font-size: 14px; color: #666 }
+.sign-link-item { text-align: center; line-height: 1 }
+.sign-link-item a { font-size: 14px; color: #666; text-align: center }
+.sign-divider { font-size: 14px; color: #666; text-align: center }
+.sign-divider::before { position: absolute; display: block; top: 50%; left: 0; width: calc(50% - 20px); height: 1px; content: ''; background-color: #AAA; transform: translateY(-50%) }
+.sign-divider::after { position: absolute; display: block; top: 50%; right: 0; width: calc(50% - 20px); height: 1px; content: ''; background-color: #AAA; transform: translateY(-50%) }
+.sign-sns-item { text-align: center }
+.reset-description { margin-bottom: 10px; color: #666; text-align: center }
+.reset-description p { margin: 0 }
+.login-screen-content .list { margin: 0 }
+.md .login-screen-content .list { margin: 0 }
+.agreement-description { margin: 30px 0 10px 0; text-align: center }
+.agreement-description p { margin: 0; font-size: 12px; color: #666; }
+.agreement-description a { color: #666; text-decoration: underline }
+.md .toast-content { justify-content: center }
+.toast-center.toast-custom { width: 220px }
+.item-input-wrap.empty-field::before { position: absolute; display: block; top: 50%; right: 40px; width: 24px; height: 24px; content: '!'; text-align: center; line-height: 24px; color: #F00; border: #F00 solid 1px; border-radius: 50%; transform: translateY(-50%) }
+.sign-sns-facebook { background: url('../img/facebook.png') no-repeat top left }
+.sign-sns-google { background: url('../img/google.png') no-repeat top left }
+.sign-sns-button { height: 40px; background-size: contain }
+
+/* Add Site */
+.page-addsite-content { display: flex; padding: 30px; flex-direction: column; justify-content: center; align-items: center }
+.page-addsite-content .list { margin: 0 }
+.page-addsite-content .no-block-margin { margin: 0 }
+.addsite-form { width: 100% }
+.addsite-title { margin-top: 24px; font-weight: 700; font-size: 22px; color: #2196F3; text-align: center }
+.addsite-detail-description { padding: 0 20px; text-align: center; word-break: break-all }
+.cname-list { display: none }
+.parent-cname-list { display: none }
+.web-server-modal .list { margin: 0 }
+.web-server-modal .list .item-content { margin-bottom: 20px }
+.web-server-modal .list .item-inner { padding: 0 }
+.region-check::before { display: block; content: 'check' }
+.addsite-confirm-content { display: flex; flex-direction: column; padding: 30px; align-items: center; justify-content: center }
+
+/* My Sites */
+[data-name="home"] .mysite-item { justify-content: flex-start }
+.justify-center { justify-content: center }
+.vertical-center { align-items: center }
+.page[data-name="home"] .fab { bottom: 65px }
+
+/* Dashboard */
+.network-status-wrap { padding-bottom: 20px }
+.network-status-list { display: flex; justify-content: space-between; margin: 0; padding: 0; list-style-type: none }
+.network-stauts-item { position: relative; flex: 1; height: 100px; margin: 0 20px }
+.network-stauts-item::before { position: absolute; display: block; left: 50%; bottom: -30px; width: 30px; height: 30px; content: ''; transform: translateX(-50%) }
+.network-stauts-item[data-status="on"]::before { background: url('../img/dashboard/sign-check.png') no-repeat center center; background-size: contain }
+.network-stauts-item[data-status="off"]::before { background: url('../img/dashboard/sign-error.png') no-repeat center center; background-size: contain }
+.network-client { background: url('../img/dashboard/client.png') no-repeat center center; background-size: contain }
+.network-cloudbric { background: url('../img/dashboard/cloudbric.png') no-repeat center center; background-size: contain }
+.network-server { background: url('../img/dashboard/server.png') no-repeat center center; background-size: contain }
+.domain-status { font-weight: 700; color: #2196F3 }
+.md .block-total-data, .ios .block-total-data { margin: 0; margin-top: 10px; margin-bottom: 20px }
+.block-total-data { text-align: center }
+.total-data-list { margin: 0; margin-bottom: 10px }
+.total-data-list dt { font-weight: 700; font-size: 18px }
+.total-data-list dd { margin: 0 }
+.total-data-traffic { font-size: 20px; color: #888 }
+.total-data-visits { font-size: 20px; color: #0A6EDB }
+.total-data-attacks { font-size: 20px; color: #F44336 }
+
+/* 肄섑뀗痢� �섎떒 �щ갚 */
+.page-content {
+    padding-bottom: 65px;
+}
+
+/* �곷떒 navbar ���댄� 媛��대뜲 �뺣젹�� �꾪븳 �ㅽ��� �ㅻ쾭�쇱씠�� */
+.md .navbar .title {
+    margin: 0 auto;
+}
+.md .navbar .right {
+    margin-left: 0;
+}
+
+/* alarm */
+.alarm-message { padding: 14px; border-bottom: #DDD solid 1px }
+.alarm-message p { margin: 0 }
+.alarm-message-title { font-weight: bold }
+.alarm-message-title span { color: #2196f3 }
+.alarm-message-time { font-size: 12px; color: #666 }
+
+/* �� �쎌� �뚮엺 諛곌꼍 */
+.md .bg-color-alarm {
+    background-color: #d4f3ff !important;
+}
+
+/* wallet */
+.page[data-name="wallet"] .fab { bottom: 65px }
+.wallet-list-wrap { padding: 0 20px; }
+.page[data-name="wallet"] .list .wallet-list { max-width: 500px; margin: 0 auto }
+.wallet-info { padding: 20px }
+.wallet-info::after { position: absolute; display: block; top: 16px; left: 72px; content: attr(data-wallet-title); font-size: 14px }
+.wallet-item { position: relative; border: #DDD solid 1px; border-radius: 10px }
+.item-icon { width: 30px; height: 50px; margin-right: 20px }
+.item-icon[data-type="ethereum"] { background: url('/assets-mobile/img/wallet/wallet-ethereum-icon.png') no-repeat center center; background-size: contain }
+.item-icon[data-type="bitcoin"] { background: url('/assets-mobile/img/wallet/wallet-bitcoin-icon.png') no-repeat center center; background-size: contain }
+.item-icon[data-type="clb"] { background: url('/assets-mobile/img/wallet/wallet-clb-icon.png') no-repeat center center; background-size: contain }
+.item-amount { margin-top: 6px; }
+.wallet-item ~ .wallet-item { margin-top: 10px }
+.wallet-title { font-size: 22px; color: #2196F3 }
+.wallet-sub-title { font-size: 14px }
+.wallet-select-wrap { padding: 0 40px }
+.page[data-name="wallet"] .list .wallet-select-list { flex-wrap: wrap; max-width: 500px; margin: 0 auto; }
+.wallet-select-item { width: calc(50% - 10px); margin-top: 20px; border: #DDD solid 1px; border-radius: 10px }
+.wallet-select-item.active { border-color: #2196F3 }
+.wallet-select-ethereum { background: url('/assets-mobile/img/wallet/add-ethereum.png') no-repeat center center; background-size: 70% }
+.wallet-select-bitcoin { background: url('/assets-mobile/img/wallet/add-bitcoin.png') no-repeat center center; background-size: 70% }
+.wallet-select-clb { background: url('/assets-mobile/img/wallet/add-clb.png') no-repeat center center; background-size: 50% }
+.add-tocken-item { flex-direction: column; padding-top: 10px }
+.add-token-icon { font-size: 40px; pointer-events: none }
+.add-token-text { padding-top: 10px; font-size: 14px; pointer-events: none }
+.custom-wallet-text { padding: 0 10px; font-size: 14px; pointer-events: none }
+.private-key-wrap { max-width: 500px; margin: 0 auto; padding: 40px }
+.private-key-wrap label { font-size: 12px }
+.private-key-wrap input { padding: 0 10px;  background-color: #EEE; }
+.confirm-wallet-dialog .dialog-title { font-size: 16px }
+.confirm-value-text { overflow: hidden; text-overflow: ellipsis }
+.confirm-wallet-dialog .row { width: 100% }
+.wallet-view-wrap { max-width: 500px; margin: 32px auto; padding: 0 20px }
+.wallet-log-list { padding-bottom: 90px }
+.wallet-view-footer { position: fixed; left: 0; bottom: 48px; width: 100%; height: 90px; padding: 30px 20px; background-color: #FFF; box-sizing: border-box; z-index: 1 }
+.select-color-item { width: 100%; border-radius: 50% }
+.select-color-item.active { border: #2196F3 solid 3px }
+.detail-title { margin-bottom: 6px; font-size: 18px }
+.qr-code-wrap { position: relative; width: 280px; height: 280px; margin: 0 auto; margin-top: 40px }
+.scan-border::before { position: absolute; display: block; width: 50px; height: 50px; content: '' }
+.scan-border::after { position: absolute; display: block; width: 50px; height: 50px; content: '' }
+.scan-border.top::before { top: 0; left: 0; border-top: #2196F3 solid 1px; border-left: #2196F3 solid 1px }
+.scan-border.top::after  { top: 0; right: 0; border-top: #2196F3 solid 1px; border-right: #2196F3 solid 1px }
+.scan-border.bottom::before { left: 0; bottom: 0; border-left: #2196F3 solid 1px; border-bottom: #2196F3 solid 1px }
+.scan-border.bottom::after { right: 0; bottom: 0; border-right: #2196F3 solid 1px; border-bottom: #2196F3 solid 1px }
+.wallet-small-button { width: 50%; max-width: 200px; margin: 0 auto; margin-top: 40px }
+[data-wallet-color="red"] { background-color: #B35A5A }
+[data-wallet-color="peach"] { background-color: #E58B78 }
+[data-wallet-color="orange"] { background-color: #EEBF6A }
+[data-wallet-color="yellow"] { background-color: #FFEE6F }
+[data-wallet-color="green"] { background-color: #ACBC7D }
+[data-wallet-color="navy"] { background-color: #6C7599 }
+[data-wallet-color="light-purple"] { background-color: #A29FB7 }
+[data-wallet-color="purple"] { background-color: #615273 }
+
+/* myaccount */
+.myaccount-logo { margin-top: 32px; margin-bottom: 10px; padding: 0 16px; text-align: center }
+.myaccount-email { padding: 0 16px; font-size: 18px; text-align: center }
+.myaccount-footer-button { position: absolute; bottom: 40px; width: 100% }
+.authenticator-key-box { padding: 4px 6px; font-size: 14px; border-right: #000 solid 1px; border-bottom: #000 solid 1px }
+.input-verification { width: 140px }
+
+
+/* gnb */
+.gnb-icon { background: no-repeat center center; background-size: contain }
+.home-icon { width: 26px; height: 26px; background-image: url('/assets-mobile/img/gnb/home_gray.png') }
+.tab-link-active .home-icon { background-image: url('/assets-mobile/img/gnb/home_blue.png') }
+.dashboard-icon { width: 22px; height: 22px; background-image: url('/assets-mobile/img/gnb/chart_gray.png') }
+.tab-link-active .dashboard-icon { background-image: url('/assets-mobile/img/gnb/chart_blue.png') }
+.alarm-icon { width: 26px; height: 26px; background-image: url('/assets-mobile/img/gnb/noti_gray.png') }
+.tab-link-active .alarm-icon { background-image: url('/assets-mobile/img/gnb/noti_blue.png') }
+.wallet-icon { width: 30px; height: 30px; background-image: url('/assets-mobile/img/gnb/wallet_gray.png') }
+.tab-link-active .wallet-icon { background-image: url('/assets-mobile/img/gnb/wallet_blue.png') }
+.myaccount-icon { width: 22px; height: 22px; background-image: url('/assets-mobile/img/gnb/account_gray.png') }
+.tab-link-active .myaccount-icon { background-image: url('/assets-mobile/img/gnb/account_blue.png') }

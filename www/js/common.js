@@ -114,3 +114,16 @@ function logout() {
 }
 
 
+function site_list() {
+    $("#site_list").html('');
+   $.post("http://topnailart.iwinv.net/sitelist_new.php",
+   {
+    
+       },
+   function(data){
+     $("#site_list").html(data);
+   
+    
+   });
+
+}

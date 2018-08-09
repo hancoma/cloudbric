@@ -105,15 +105,27 @@ h1 {
     -webkit-animation:fade 3000ms infinite;
 }
 
-/* gnb */
-.gnb-icon { background: no-repeat center center; background-size: contain }
-.home-icon { width: 26px; height: 26px; background-image: url('../assets-mobile/img/gnb/home_gray.png') }
-.tab-link-active .home-icon { background-image: url('../assets-mobile/img/gnb/home_blue.png') }
-.dashboard-icon { width: 22px; height: 22px; background-image: url('../assets-mobile/img/gnb/chart_gray.png') }
-.tab-link-active .dashboard-icon { background-image: url('../assets-mobile/img/gnb/chart_blue.png') }
-.alarm-icon { width: 26px; height: 26px; background-image: url('../assets-mobile/img/gnb/noti_gray.png') }
-.tab-link-active .alarm-icon { background-image: url('../assets-mobile/img/gnb/noti_blue.png') }
-.wallet-icon { width: 30px; height: 30px; background-image: url('../assets-mobile/img/gnb/wallet_gray.png') }
-.tab-link-active .wallet-icon { background-image: url('../assets-mobile/img/gnb/wallet_blue.png') }
-.myaccount-icon { width: 22px; height: 22px; background-image: url('../assets-mobile/img/gnb/account_gray.png') }
-.tab-link-active .myaccount-icon { background-image: url('../assets-mobile/img/gnb/account_blue.png') }
+#map {
+    height:30%;
+    width:100%;
+   margin-top:50px;
+}
+
+.circle_pic {
+    border-radius: 50%;
+
+}
+.chat_msg_box {
+    border:1px #fff solid;
+    background-color: #fff;
+    
+    padding:5px;
+    color:#000;
+}
+
+.chat_msg_box_me {
+    border:1px #FFFF00 solid;
+    background-color: #FFFF00;
+    padding:5px;
+    color:#000;
+}

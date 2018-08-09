@@ -125,14 +125,7 @@ push.on('error', function(e) {
 };
 
 function start_app() {
-  var user_id = window.localStorage.getItem("user_id");
-    // 로그인 처리 가 빠져 있기 때문에 바로 연결
-    if (!user_id) {
- location.replace('login.html') ;  
-    } else {
-   location.replace('main.html') ;  
- }
-     
+   location.replace('main.html') ;       
 }
  
 

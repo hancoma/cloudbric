@@ -1,708 +1,545 @@
-
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="theme-color" content="#2196f3">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
-    <title>Cloudbric App</title>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' gallerybear.com * gap: ws: https://ssl.gstatic.com;img-src * data: content:;style-src 'self' 'unsafe-inline' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;">
+
+
+   
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+      <link href="css/ratchet.min.css" rel="stylesheet">
+       <link href="css/ratchet-theme-ios.css" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="css/uikit.gradient.min.css">
     <link rel="stylesheet" href="assets-mobile/framework7/css/framework7.min.css">
-    <link rel="stylesheet" href="assets-mobile/css/icons.css">
-    <link rel="stylesheet" href="assets-mobile/css/app.css?2018051402">
-    <link rel="stylesheet" href="assets-mobile/css/c3.min.css">
-    <script type="text/javascript" charset="utf-8" src="js/PushNotification.js"></script>
-     <script type="text/javascript" src="cordova.js"></script>
-    <script src="assets-mobile/js/d3.v4.min.js" charset="utf-8"></script>
-    <script src="assets-mobile/js/c3.min.js" charset="utf-8"></script>
- 
+
+          <script src="js/uikit.js"></script>
+          <script src="js/ratchet.js"></script>
+             <link rel="stylesheet" type="text/css" href="css/app.css" />
+                   <link href="css/style.css" rel="stylesheet">
+                    <script type="text/javascript" src="cordova.js"></script>
+                    
+                    <!-- include summernote css/js-->
+
+    <title>Hello World</title>
 </head>
+
 <body>
-<div id="app">
-    <div class="views tabs ios-edges">
-        <div id="view-home" class="view view-main tab tab-active">
-            <div class="page" data-name="home">
-                <div class="navbar">
-                    <div class="navbar-inner">
-                        <div class="title sliding">My Sites</div>
-                    </div>
-                </div>
-                <div class="page-content" id="site_list">
-                                       
-                                    </div>
-            </div>
-        </div>
-        <div id="view-alarm" class="view tab"></div>
-        <div id="view-myaccount" class="view tab"></div>
+<header class="bar bar-nav">
+ <a class="icon icon-gear pull-right"  onclick="open_right();"></a>
 
-        <div id="view-settings" class="view tab"></div>
+  <h1 class="title">My Sites</h1>
+</header>
 
-        <div class="toolbar tabbar toolbar-bottom-md">
-            <div class="toolbar-inner">
-                <a href="/mysites" class="tab-link external">
-                    <i class="icon f7-icons ios-only">list</i>
-                    <i class="icon material-icons md-only">home</i>
-                </a>
-                <a href="#view-home" class="tab-link">
-                    <i class="icon material-icons">dashboard</i>
-                </a>
-                <a href="#view-alarm" class="tab-link">
-                    <i class="icon f7-icons">bell<span class="badge color-red">3</span></i>
-                </a>
-                <a href="#view-myaccount" class="tab-link">
-                    <i class="icon f7-icons ios-only">person</i>
-                    <i class="icon material-icons md-only">person</i>
-                </a>
-            </div>
-        </div>
-    </div>
+<div id="site_list" class="page-content" style="overflow-y: scroll; width:100%; height:100%;  padding-bottom: 100px; padding-top:50px;">
+
+
 </div>
-<div class="popup popup-tablet-fullscreen" id="pop_contents">
-    
+<div id="chat_contents" style="overflow-y: scroll; width:100%; height:100%;  padding-bottom: 100px; padding-top:50px;">
 
 
-    <div class="views tabs ios-edges">
-        <div id="view-home" class="view view-main tab tab-active">
-            
-        <div class="page page-current" data-name="dashboard">
-        <div class="navbar">
-            <div class="navbar-inner sliding">
-                <div class="left">
-                    <a href="#" class="link back" onclick="pop_close();">
-                        <i class="icon icon-back"></i>
-                        
-                    </a>
-                </div>
-                <div class="title">Dashboard</div>
-                <div class="right">
-                    <a href="#" data-popup=".setting-popup" class="popup-open link">
-                        <i class="icon f7-icons">gear</i>
-                    </a>
-                </div>
-            </div>
-        </div>
+</div>
 
-<div class="popup setting-popup">
-            <div class="view">
-                <div class="page">
-                    <div class="navbar">
-                        <div class="navbar-inner">
-                            <!-- 팝업 타이틀 가운데 정렬을 위해 안 보이는 아이콘 -->
-                            <div class="left">
-                                <a class="link popup-close">
-                                <i class="icon color-blue material-icons ">close</i>
-                                </a>
+<div id="offcanvas-right" class="uk-offcanvas" aria-hidden="true" >
+
+                                <div class="uk-offcanvas-bar uk-offcanvas-bar-flip" mode="push" id="right_menu">
+ <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav="">
+                                        <li><a href="#" onclick="logout()">로그아웃</a></li>
+                                      
+                                    
+
+                                        <li><a href="#" onclick="open_url('http://homes1004.kr/xe/index.php?act=dispMemberModifyInfo')">정보수정</a></li>
+                                        <li><a href="#" onclick="open_url('http://homes1004.kr/xe/index.php?act=dispMemberModifyInfo')">회원사진</a></li>
+                                        <li><a href="#" onclick="open_url('http://homes1004.kr/xe/index.php?act=dispMemberModifyInfo')">나의번역목록</a></li>
+                                        <li><a href="#" onclick="open_url('http://homes1004.cafe24.com/address_update.php')">주소록동기화</a></li>
+                                        
+                                    </ul>
+                                   
+
+                                </div>
+
                             </div>
-                            <div class="title">Settings</div>
-                            <div class="right">
-                                <!-- Link to close popup -->
-                                <a class="link popup-close"  data-popup=".setting-popup">
-                                    <i class="icon material-icons">close</i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="page-content">
-                        <div class="block-title">General <div class="float-right"><?=$obj['result_info']['domain']?></div></div>
-                        <div class="list simple-list">
-                            <ul>
-                                <li>
-                                    <span>Bypass Mode</span>
-                                    <label class="toggle toggle-init color-red">
-                                        <input type="checkbox">
-                                        <span class="toggle-icon"></span>
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
 
-                        <div class="block-title">Redirection Settings</div>
-                        <div class="list simple-list">
-                            <ul>
-                                <li>
-                                    <span>Redirect to www</span>
-                                    <label class="toggle toggle-init color-blue">
-                                        <input type="checkbox" checked="checked">
-                                        <span class="toggle-icon"></span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <span>Redirect to HTTPS</span>
-                                    <label class="toggle toggle-init color-blue">
-                                        <input type="checkbox" checked="checked">
-                                        <span class="toggle-icon"></span>
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
-                          <div class="block-title">MEMBER</div>
-                        <div class="list simple-list">
-                            <ul>
-                                <li onclick="logout();">
-                                    <span>LOGOUT</span>
-                                 
-                                </li>
-                                
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            ...
-        </div>
+<div id="make_chat_uk_modal" class="uk-modal" aria-hidden="true" style="display: none; overflow-y: scroll;">
+                                <div class="uk-modal-dialog">
+                                    <button type="button" class="uk-modal-close uk-close"></button>
+                                    <div class="uk-modal-header">
+                                        <h2 id="member_modal_title">방만들기</h2>
+                                    </div>
+                                    <p id="member_modal_contents">
+                                    <form class="uk-form">
 
-        <div class="tabs" style="overflow-y: auto;">
-            <div id="tab-visits" class="page-content tab tab-active" style="overflow-y: auto;">
-                <div class="list">
-                    <ul>
-                        <li>
-                            <div class="item-content">
-                                <div class="item-media" id="status_image"></div>
-                                <div class="item-inner">
-                                    <div class="item-title domain-status" id="status"></div>
-                                    <div class="item-after" id="domain_name"></div>
+    <fieldset data-uk-margin>
+        <legend>방정보를 입력하세요.</legend>
+        <input type="text" name="chat_room_title" id="chat_room_title" placeholder="방 제목을 입력하세요.">
+        
+        <select name="chat_mode" id="chat_mode">
+            <option value="2">비공개</option>
+            <option value="1">공개</option>
+        </select>
+        
+    </fieldset>
+
+</form>
+                                    </p>
+                                    <div class="uk-modal-footer uk-text-right" id="member_modal_btn">
+                                   <button type="button" class="uk-button uk-modal-close">닫기</button> 
+                                    <a href=# class="uk-button uk-button-success" onclick="make_chat_room()">방만들기</a> 
+                                    </div>
                                 </div>
                             </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="block">
-                    <div class="segmented">
-                        <a href="#tab-visits" class="button button-round button-outline button-active tab-link">Visits</a>
-                        <a href="#tab-attacks" class="button button-round button-outline color-red tab-link">Attacks</a>
-                    </div>
-                </div>
-                <div class="block block-strong block-total-data">
-                    <div class="row">
-                        <div class="col total-traffic">
-                            <dl class="total-data-list">
-                                <dt class="">Total Traffic</dt>
-                                <dd>May</dd>
-                            </dl>
-                            <div class="total-data-traffic" id="limit_traffic" ><?=intval($obj['result_info']['traffic']/1024/1024/1024)?>GB / <?=intval($obj['result_info']['limit_traffic']/1024/1024/1024)?>GB</div>
-                        </div>
-                        <div class="col total-visits">
-                            <dl class="total-data-list">
-                                <dt>Total Visits</dt>
-                                <dd>May</dd>
-                            </dl>
-                            <div class="total-data-visits" id="total_visit"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="block-title">Total Visits</div>
-                <div class="block block-strong" style="width:100%;">
-                    <div id="chart-visits" class="c3" style="max-height: 320px; position: relative; ">
-                        
-                    </div>
-                </div>
-                <div class="block-title">Top Countries</div>
-                <div class="block block-strong">
-                    <div id="chart-countries" class="c3" style="max-height: 320px; position: relative;">
-                    </div>
-                </div>
-                <div class="block-title">Traffic By Day</div>
-                <div class="block block-strong">
-                    <div id="chart-traffic" class="c3" style="max-height: 320px; position: relative;">
-                    </div>
-                </div>
-            </div>
-            <div id="tab-attacks" class="page-content tab" style="overflow-y: auto;">
-                <div class="list">
-                    <ul>
-                        <li>
-                            <div class="item-content">
-                                <div class="item-media" id="status_image_a"></div>
-                                <div class="item-inner">
-                                    <div class="item-title domain-status" id="status_a"></div>
-                                    <div class="item-after" id="domain_name_a"></div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="block">
-                    <div class="segmented">
-                        <a href="#tab-visits" class="button button-round button-outline tab-link">Visits</a>
-                        <a href="#tab-attacks" class="button button-round button-outline button-active color-red tab-link">Attacks</a>
-                    </div>
-                </div>
-                <div class="block block-strong block-total-data">
-                    <div class="row">
-                        <div class="col total-traffic">
-                            <dl class="total-data-list">
-                                <dt>Total Traffic</dt>
-                                <dd>May</dd>
-                            </dl>
-                            <div class="total-data-traffic" id="limit_traffic_a" ></div>
-                        </div>
-                        <div class="col total-visits">
-                            <dl class="total-data-list">
-                                <dt>Total Attacks</dt>
-                                <dd>May</dd>
-                            </dl>
-                            <div class="total-data-attacks" id="total_attack"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="block-title">Total Attacks</div>
-                <div class="block block-strong">
-                    <div id="chart-attacks" class="c3" style="max-height: 320px; position: relative;">
+ <div id="contacts_modal" class="modal">
+  <header class="bar bar-nav">
+    <a class="icon icon-close pull-right" href="#contacts_modal"></a>
+    <h1 class="title">주소록</h1>
+  </header>
 
-                </div>
-                </div>
-                <div class="block-title">Top Ips</div>
-                <div class="block block-strong">
-                    <div id="chart-ips" class="c3" style="max-height: 320px; position: relative;">
-                        
-                    </div>
-                </div>
-                <div class="block-title">Attack Purpose</div>
-                <div class="block block-strong">
-                    <div id="chart-purpose" class="c3" style="max-height: 320px; position: relative;">
-                    </div>
-                </div>
-                <div class="block-title">Attack URLs</div>
-                <div class="block block-strong">
-                    <div id="chart-urls" class="c3" style="max-height: 320px; position: relative;">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div></div>
-       
-        <div id="view-myaccount" class="view tab"><div class="page page-current" data-name="myaccount">
-        <div class="navbar">
-            <div class="navbar-inner sliding">
-                <div class="title">My Account</div>
-            </div>
-        </div>
-        <div class="page-content">
-            <div class="list">
-                <ul>
-                    <li>
-                        <div class="item-content">
-                            <div class="item-inner">
-                                <div class="item-title">E-mail Address : staff@greenolivetree.net</div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="block">
-                <div class="row">
-                    <button class="col button button-fill color-gray">Log Out</button>
-                </div>
-            </div>
-        </div>
-    </div></div>
-
-        <div id="view-settings" class="view tab"></div>
-
-        <div class="toolbar tabbar toolbar-bottom-md">
-            <div class="toolbar-inner">
-                <a href="/mysites" class="tab-link external">
-                    <i class="icon f7-icons ios-only">list</i>
-                    <i class="icon material-icons md-only">home</i>
-                </a>
-                <a href="#view-home" class="tab-link">
-                    <i class="icon material-icons">dashboard</i>
-                </a>
-                <a href="#view-alarm" class="tab-link">
-                    <i class="icon f7-icons">bell<span class="badge color-red">3</span></i>
-                </a>
-                <a href="#view-myaccount" class="tab-link">
-                    <i class="icon f7-icons ios-only">person</i>
-                    <i class="icon material-icons md-only">person</i>
-                </a>
-            <span class="tab-link-highlight" style="width: 25%;"></span></div>
-        </div>
-    </div>
-
-      
-
-
+  <div class="content" id="contacts_contents" style="margin-top:10px;">
+   <ul class="table-view" id="contacts_list">
+  </ul>
 
   </div>
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/common.js"></script>
-<script type="text/javascript" src="js/app.js"></script>
-<script src="assets-mobile/framework7/js/framework7.min.js"></script>
-<script src="assets-mobile/js/routes.js?2018051402"></script>
-<script src="assets-mobile/js/app.js?2018051402"></script>
+</div>
+                           
+<div id="bang_modal" class="modal">
+  <header class="bar bar-nav">
+    <a class="icon icon-close pull-right" href="#bang_modal"></a>
+    <h1 class="title">매물등록</h1>
+  </header>
 
-<script>
-
-  $("#site_list").html('');
-   $.post("http://topnailart.iwinv.net/sitelist.php",
-   {
-    
-       },
-   function(data){
-     $("#site_list").html(data);
+  <div class="content" style="margin-top:10px;">
    
-    
-   });
-   function pop_contents(domain_idx) {
-    var domain_idx=domain_idx;
-    
-    app.popup.open("#pop_contents"); // 팝업창 열기
-      $.post("http://topnailart.iwinv.net/site_display_data.php",
-   {
-        domain_idx:domain_idx
-    
-       },
-   function(data){
-    console.log(data);
-    var site_data = JSON.parse(data);
-   
-    switch (site_data.status) {
-    case 'Protected':
-                                        status_image = 'protected';
-                                        break;
-                                    case 'Bypass':
-                                        status_image = 'bypass';
-                                        break;
-                                    case 'Pending':
-                                        status_image = 'pending';
-                                        break;
-                                    case 'Deleting':
-                                        status_image = 'deleting';
-                                        break;
-                                    case 'Disconnected':
-                                        status_image = 'disconnected';
-                                        break;
-}
-var status_image_name="<img src='assets-mobile/img/"+status_image+".png' alt='"+status_image+"'>";
- $("#domain_name").html(site_data.domain);
-$("#status_image").html(status_image_name);
-$("#status").html(status_image);
- $("#domain_name_a").html(site_data.domain);
-$("#status_image_a").html(status_image_name);
-$("#status_a").html(status_image);
-var traffic=parseInt(site_data.traffic/1024/1024/1024);
-var limit_traffic=parseInt(site_data.limit_traffic/1024/1024/1024);
+  <input type="text" placeholder="매물명">
+  <input type="text" placeholder="주소">
+ <a href=# onclick="getImage()">사진추가</a> 
+  <textarea rows="5"></textarea>
+  <button class="btn btn-positive btn-block" >등록하기</button>
 
-$("#limit_traffic").html(traffic+"G/"+limit_traffic+"G");
-$("#limit_traffic_a").html(traffic+"G/"+limit_traffic+"G")
- 
- 
-     //$("#pop_contents").html(data);
-    
-   });
-   // 방문자 
+  </div>
+</div>
+<div id="chat_room_modal" class="modal">
+  <header class="bar bar-nav">
+    <a class="icon icon-close pull-left" href="#chat_room_modal"></a>
+    <a data-uk-modal="{target:'#chat_setup_modal'}" class="icon icon-more-vertical pull-right"></a>
 
-       $.post("http://topnailart.iwinv.net/site_visit_data.php",
-   {
-        domain_idx:domain_idx
     
-       },
-   function(data){
-   
-    var visit_data = JSON.parse(data);
-   
-var total_visit=visit_data.total_count.visits;
-var total_attack=visit_data.total_count.attacks;
- $("#total_visit").html(total_visit);
-$("#total_attack").html(total_attack);
+    <h1 class="title">대화방</h1>
 
- // 차트 
- var chart = c3.generate({
-    bindto: '#chart-visits',
-   data: {
-    json: visit_data.total_log
+  <div class="uk-width-1-1"  style="float:left; position: fixed; margin-top: 50px; width:100%;" >
+    
+
+     <select name="to_lan" id="to_lan" onchange="re_open_chat_room();" class="uk-width-1-2" style="float:right">
+    <option value="">select language</option>
+<option value="af">Afrikaans</option>
+<option value="sq">Albanian</option>
+<option value="am">Amharic</option>
+<option value="ar">Arabic</option>
+<option value="hy">Armenian</option>
+<option value="az">Azerbaijani</option>
+<option value="eu">Basque</option>
+<option value="be">Belarusian</option>
+<option value="bn">Bengali</option>
+<option value="bs">Bosnian</option>
+<option value="bg">Bulgarian</option>
+<option value="ca">Catalan</option>
+<option value="ceb">Cebuano</option>
+<option value="ny">Chichewa</option>
+<option value="zh">Chinese Simplified</option>
+<option value="zh-TW">Chinese Traditional</option>
+<option value="co">Corsican</option>
+<option value="hr">Croatian</option>
+<option value="cs">Czech</option>
+<option value="da">Danish</option>
+<option value="nl">Dutch</option>
+<option value="en">English</option>
+<option value="eo">Esperanto</option>
+<option value="et">Estonian</option>
+<option value="tl">Filipino</option>
+<option value="fi">Finnish</option>
+<option value="fr">French</option>
+<option value="fy">Frisian</option>
+<option value="gl">Galician</option>
+<option value="ka">Georgian</option>
+<option value="de">German</option>
+<option value="el">Greek</option>
+<option value="gu">Gujarati</option>
+<option value="ht">Haitian Creole</option>
+<option value="ha">Hausa</option>
+<option value="haw">Hawaiian</option>
+<option value="iw">Hebrew</option>
+<option value="hi">Hindi</option>
+<option value="hmn">Hmong</option>
+<option value="hu">Hungarian</option>
+<option value="is">Icelandic</option>
+<option value="ig">Igbo</option>
+<option value="id">Indonesian</option>
+<option value="ga">Irish</option>
+<option value="it">Italian</option>
+<option value="ja">Japanese</option>
+<option value="jw">Javanese</option>
+<option value="kn">Kannada</option>
+<option value="kk">Kazakh</option>
+<option value="km">Khmer</option>
+<option value="ko">Korean</option>
+<option value="ku">Kurdish Kurmanji</option>
+<option value="ky">Kyrgyz</option>
+<option value="lo">Lao</option>
+<option value="la">Latin</option>
+<option value="lv">Latvian</option>
+<option value="lt">Lithuanian</option>
+<option value="lb">Luxembourgish</option>
+<option value="mk">Macedonian</option>
+<option value="mg">Malagasy</option>
+<option value="ms">Malay</option>
+<option value="ml">Malayalam</option>
+<option value="mt">Maltese</option>
+<option value="mi">Maori</option>
+<option value="mr">Marathi</option>
+<option value="mn">Mongolian</option>
+<option value="my">Myanmar Burmese</option>
+<option value="ne">Nepali</option>
+<option value="no">Norwegian</option>
+<option value="ps">Pashto</option>
+<option value="fa">Persian</option>
+<option value="pl">Polish</option>
+<option value="pt">Portuguese</option>
+<option value="pa">Punjabi</option>
+<option value="ro">Romanian</option>
+<option value="ru">Russian</option>
+<option value="sm">Samoan</option>
+<option value="gd">Scots Gaelic</option>
+<option value="sr">Serbian</option>
+<option value="st">Sesotho</option>
+<option value="sn">Shona</option>
+<option value="sd">Sindhi</option>
+<option value="si">Sinhala</option>
+<option value="sk">Slovak</option>
+<option value="sl">Slovenian</option>
+<option value="so">Somali</option>
+<option value="es">Spanish</option>
+<option value="su">Sundanese</option>
+<option value="sw">Swahili</option>
+<option value="sv">Swedish</option>
+<option value="tg">Tajik</option>
+<option value="ta">Tamil</option>
+<option value="te">Telugu</option>
+<option value="th">Thai</option>
+<option value="tr">Turkish</option>
+<option value="uk">Ukrainian</option>
+<option value="ur">Urdu</option>
+<option value="uz">Uzbek</option>
+<option value="vi">Vietnamese</option>
+<option value="cy">Welsh</option>
+<option value="xh">Xhosa</option>
+<option value="yi">Yiddish</option>
+<option value="yo">Yoruba</option>
+<option value="zu">Zulu</option>
+     </select>
+ </div>
+  
+  </header>
+  <div id="chat_member_modal" class="uk-modal" aria-hidden="true" style="display: none; overflow-y: scroll;">
+                                <div class="uk-modal-dialog">
+                                    <button type="button" class="uk-modal-close uk-close"></button>
+                                    <div class="uk-modal-header">
+                                        <h2>채팅방 참여자</h2>
+                                    </div>
+                                    <p id="chat_member_contents">
+                                      
+                                    </p>
+                                    <div class="uk-modal-footer uk-text-right">
+                                        <button type="button" class="uk-modal-close uk-button">닫기</button>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+<div id="chat_setup_modal" class="uk-modal" aria-hidden="true" style="display: none; overflow-y: scroll;">
+                                <div class="uk-modal-dialog">
+                                    <button type="button" class="uk-modal-close uk-close"></button>
+                                    <div class="uk-modal-header">
+                                        <h2>채팅방</h2>
+                                    </div>
+                                    <p id="chat_setup_contents">
+                                      <!-- 수정 -->
+                                      <div class="uk-width-1-1 uk-button" onclick='chat_member_list()'>참여자목록</div>
+                                      <div class="uk-width-1-1 uk-button" onclick='find_member()'>초대하기</div>
+                                      <div class="uk-width-1-1 uk-button" onclick="delete_chat_room()" id="delete_chat_room" >대화방삭제</div>
+                                      <div class="uk-width-1-1 uk-button" onclick="close_chat_room()">나가기</div>
+                                      <!-- 방정 수정 끝-->
+                                    </p>
+                                    <div class="uk-modal-footer uk-text-right">
+                                        <button type="button" class="uk-modal-close uk-button">닫기</button>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+  <div class="content" style="background-color: #80D5FD;">
+    <div class="uk-grid uk-grid-small" id="chat_body" style="margin-bottom:40px;">
+    
+    
+    
+    </div> <div style="height: 50px;">
+ </div>
+
+</div><nav class="bar bar-tab">
+  <div class="uk-grid" style="line-height: 40px; width:100%;">
+    <div class="uk-width-7-10 uk-text-center">
+ <input type="hidden" name="room_no" value="" id="room_no">
+ <textarea class="form-control" placeholder="MESSAGE" id="chat_msg" style="margin-left:10px;" onclick="re_open_chat_room();" cols="30" rows="2"></textarea>
         
-    ,
-    type: 'area-spline',
-    groups:[['visits']],
-    keys: {
-      x: 'date',
-      value: ["visits"]
-    }
-  },
-  axis: {
-    x: {
-      type: 'timeseries',
-            tick: {
-                format: '%d'
-            }
-    }
-  }
-});
+        </div>
+        <div class="uk-width-3-10 uk-text-right">
+      <a href="#" class="uk-button uk-button-danger uk-button-small" id="send_btn" onclick="save_chat();">전송</a><span class="uk-button uk-button-success uk-button-small" onclick="getImage('1','chat');"><i class="uk-icon-file-image-o"></i></span>
+      </div>
+  </div>
+  </nav>
+  </div> 
+
+<div id="chat_member_list_modal" class="modal">
+  <header class="bar bar-nav">
+    <a class="icon icon-close pull-right" href="#chat_member_list_modal"></a>
+    <h1 class="title">대화 참여자 보기</h1>
+  </header>
+
+  <div class="content" id="chat_member_list_contents">
+    <p class="content-padded">목록</p>
+  </div>
+</div>  
+<div id="wallet_modal" class="modal">
+  <header class="bar bar-nav">
+    <a class="icon icon-close pull-right" href="#wallet_modal"></a>
+    <h1 class="title">Wallet</h1>
+  </header>
+
+  <div class="content" >
+    <p class="content-padded" id="wallet_contents"></p>
+  </div>
+</div>
 
 
- // 공격차트 
- var chart = c3.generate({
-    bindto: '#chart-attacks',
-   data: {
-    json: visit_data.total_log
-        
-    ,
-    type: 'area-spline',
-    groups:[['attacks']],
-    keys: {
-      x: 'date',
-      value: ["attacks"]
-    }
-  },
-  axis: {
-    x: {
-      type: 'timeseries',
-            tick: {
-                format: '%d'
-            }
-    }
-  }
-});
+<div id="send_point_modal" class="modal">
+  <header class="bar bar-nav">
+    <a class="icon icon-close pull-right" href="#send_point_modal"></a>
+    <h1 class="title">포인트보내기</h1>
+  </header>
 
+  <div class="content" >
+    <p class="content-padded" id="send_point_contents"></p>
+  </div>
+</div>
+
+
+<div id="shop_info_modal" class="modal">
+  <header class="bar bar-nav">
+    <a class="icon icon-close pull-right" href="#shop_info_modal"></a>
+    <h1 class="title">상세 내용 보기</h1>
+  </header>
+
+  <div class="content" id="shop_contents">
+    <p class="content-padded">내용</p>
+  </div>
+</div>
+
+<div id="trans_modal" class="modal">
+  <header class="bar bar-nav">
+    <a class="icon icon-close pull-right" href="#trans_modal"></a>
+    <h1 class="title">번역기</h1>
+  </header>
+
+  <div class="content" id="trans_contents">
     
-   });
+    <p class="content-padded">
+      <textarea name="trans_contents_box" id="trans_contents_box" cols="30" rows="10" class="uk-width-1-1" style="height:30%;"></textarea>
+      
+    <select id="trans_language2" name="trans_language2" class="uk-width-1-5">
+     <option value="af">Afrikaans</option>
+<option value="sq">Albanian</option>
+<option value="am">Amharic</option>
+<option value="ar">Arabic</option>
+<option value="hy">Armenian</option>
+<option value="az">Azerbaijani</option>
+<option value="eu">Basque</option>
+<option value="be">Belarusian</option>
+<option value="bn">Bengali</option>
+<option value="bs">Bosnian</option>
+<option value="bg">Bulgarian</option>
+<option value="ca">Catalan</option>
+<option value="ceb">Cebuano</option>
+<option value="ny">Chichewa</option>
+<option value="zh">Chinese Simplified</option>
+<option value="zh-TW">Chinese Traditional</option>
+<option value="co">Corsican</option>
+<option value="hr">Croatian</option>
+<option value="cs">Czech</option>
+<option value="da">Danish</option>
+<option value="nl">Dutch</option>
+<option value="en">English</option>
+<option value="eo">Esperanto</option>
+<option value="et">Estonian</option>
+<option value="tl">Filipino</option>
+<option value="fi">Finnish</option>
+<option value="fr">French</option>
+<option value="fy">Frisian</option>
+<option value="gl">Galician</option>
+<option value="ka">Georgian</option>
+<option value="de">German</option>
+<option value="el">Greek</option>
+<option value="gu">Gujarati</option>
+<option value="ht">Haitian Creole</option>
+<option value="ha">Hausa</option>
+<option value="haw">Hawaiian</option>
+<option value="iw">Hebrew</option>
+<option value="hi">Hindi</option>
+<option value="hmn">Hmong</option>
+<option value="hu">Hungarian</option>
+<option value="is">Icelandic</option>
+<option value="ig">Igbo</option>
+<option value="id">Indonesian</option>
+<option value="ga">Irish</option>
+<option value="it">Italian</option>
+<option value="ja">Japanese</option>
+<option value="jw">Javanese</option>
+<option value="kn">Kannada</option>
+<option value="kk">Kazakh</option>
+<option value="km">Khmer</option>
+<option value="ko">Korean</option>
+<option value="ku">Kurdish Kurmanji</option>
+<option value="ky">Kyrgyz</option>
+<option value="lo">Lao</option>
+<option value="la">Latin</option>
+<option value="lv">Latvian</option>
+<option value="lt">Lithuanian</option>
+<option value="lb">Luxembourgish</option>
+<option value="mk">Macedonian</option>
+<option value="mg">Malagasy</option>
+<option value="ms">Malay</option>
+<option value="ml">Malayalam</option>
+<option value="mt">Maltese</option>
+<option value="mi">Maori</option>
+<option value="mr">Marathi</option>
+<option value="mn">Mongolian</option>
+<option value="my">Myanmar Burmese</option>
+<option value="ne">Nepali</option>
+<option value="no">Norwegian</option>
+<option value="ps">Pashto</option>
+<option value="fa">Persian</option>
+<option value="pl">Polish</option>
+<option value="pt">Portuguese</option>
+<option value="pa">Punjabi</option>
+<option value="ro">Romanian</option>
+<option value="ru">Russian</option>
+<option value="sm">Samoan</option>
+<option value="gd">Scots Gaelic</option>
+<option value="sr">Serbian</option>
+<option value="st">Sesotho</option>
+<option value="sn">Shona</option>
+<option value="sd">Sindhi</option>
+<option value="si">Sinhala</option>
+<option value="sk">Slovak</option>
+<option value="sl">Slovenian</option>
+<option value="so">Somali</option>
+<option value="es">Spanish</option>
+<option value="su">Sundanese</option>
+<option value="sw">Swahili</option>
+<option value="sv">Swedish</option>
+<option value="tg">Tajik</option>
+<option value="ta">Tamil</option>
+<option value="te">Telugu</option>
+<option value="th">Thai</option>
+<option value="tr">Turkish</option>
+<option value="uk">Ukrainian</option>
+<option value="ur">Urdu</option>
+<option value="uz">Uzbek</option>
+<option value="vi">Vietnamese</option>
+<option value="cy">Welsh</option>
+<option value="xh">Xhosa</option>
+<option value="yi">Yiddish</option>
+<option value="yo">Yoruba</option>
+<option value="zu">Zulu</option>
+    </select>
+    <a href=# class="uk-button uk-button-success uk-width-1-5"  id="trans_btn" onclick="trans_btn();">
+  TRANS
+</a> <a href=# class="uk-button uk-button-danger uk-width-1-4"  id="trans_btn" onclick="trans_history_btn();">
+  HISTORY
+</a>
+    <textarea name="trans_contents_box2" id="trans_contents_box2" cols="30" rows="10" class="uk-width-1-1" style="height:30%;"></textarea>
+  </p>
+  </div>
 
-//top_ips
-
- $.post("http://topnailart.iwinv.net/site_top_ips.php",
-   {
-        domain_idx:domain_idx
-    
-       },
-   function(data){
-var ips_data = $.parseJSON(data);
-    
- var chartIps = c3.generate({
-                    bindto: '#chart-ips',
-                    data: {
-                        json: ips_data,
-                        keys: {
-                            x: 'ip',
-                            value: ['count']
-                        },
-                        type: 'bar',
-                        colors: {
-                            count: '#d62728'
-                        },
-                        empty: {
-                            label: {
-                                text: "No Data"
-                            }
-                        }
-                    },
-                    axis: {
-                        x: {
-                            type: 'category'
-                        },
-                        y: {
-                            tick: {
-                                format: function(d) {
-                                    return d.toFixed(0);
-                                },
-                                count: 5
-                            }
-                        },
-                        rotated: true,
-                    },
-                    bar: {
-                        width: 20
-                    }
-                });
-});
-
-//
-
-//chart-countries
-
- $.post("http://topnailart.iwinv.net/site_top_countries.php",
-   {
-        domain_idx:domain_idx
-    
-       },
-   function(data){
-var countries_data = $.parseJSON(data);
-
-    var chartCountries = c3.generate({
-                    bindto: '#chart-countries',
-                    data: {
-                        json: countries_data,
-                        keys: {
-                            x: 'country',
-                            value: ['count']
-                        },
-                        type: 'bar'
-                    },
-                    axis: {
-                        x: {
-                            type: 'category'
-                        },
-                        rotated: true
-                    },
-                    bar: {
-                        width: 20
-                    }
-                });
-
-});
-
-
-// traffic by day
- $.post("http://topnailart.iwinv.net/site_traffic_day.php",
-   {
-        domain_idx:domain_idx
-    
-       },
-   function(data){
-var Traffic_data = $.parseJSON(data);
-var chartTraffic = c3.generate({
-                    bindto: '#chart-traffic',
-                    padding: {
-                        left: 60
-                    },
-                    data: {
-                        json: Traffic_data,
-                        keys: {
-                            x: 'date',
-                            value: ['traffic']
-                        },
-                        type: 'bar'
-                    },
-                    axis: {
-                        x: {
-                            type: 'timeseries',
-                            tick: {
-                                format: '%m/%d',
-                                count: 7
-                            }
-                        },
-                        y: {
-                            tick: {
-                                format: function(d) {
-                                    return (d / 1024 / 1024).toFixed(1) + 'MB';
-                                },
-                                count: 5
-                            }
-                        }
-                    },
-                    bar: {
-                        width: {
-                            ratio: 0.1
-                        }
-                    }
-                });
-
-});
+</div>
 
 
- // attack_purpose.php
- $.post("http://topnailart.iwinv.net/site_attack_purpose.php",
-   {
-        domain_idx:domain_idx
-    
-       },
-   function(data_purpose) {
+<div id="trans_list_modal" class="modal">
+  <header class="bar bar-nav">
+    <a class="icon icon-close pull-right" href="#trans_list_modal"></a>
+    <h1 class="title">번역히스토리</h1>
+  </header>
+
+  <div class="content" id="trans_list_contents">
+
+  </div>
+
+</div>
+
+
+<div id="trans_view_modal" class="modal">
+  <header class="bar bar-nav">
+    <a class="icon icon-close pull-right" href="#trans_view_modal"></a>
+    <h1 class="title">번역내용</h1>
+  </header>
+
+  <div class="content" id="trans_view_contents">
+
+  </div>
+
+</div>
+
+<nav class="bar bar-tab bar-footer">
+  <a class="tab-item active" id="main_icon" href="#" onclick="site_list();">
+    <span class="icon gnb-icon home-icon" ></span>
+  </a>
  
-var Purpose_data = $.parseJSON(data_purpose);
+  <a class="tab-item active" id="chart_icon" href="#" onclick="chat_show()">
+    <span class="icon gnb-icon dashboard-icon" ></span>
+  </a>
+ 
+  <a class="tab-item active" id="chart_icon" href="#" onclick="chat_show()">
+    <span class="icon gnb-icon alarm-icon" ></span>
+  </a>
 
+<a class="tab-item active" id="chart_icon" href="#" onclick="chat_show()">
+    <span class="icon gnb-icon wallet-icon" ></span>
+  </a>
+ 
+<a class="tab-item active" id="chart_icon" href="#" onclick="chat_show()">
+    <span class="icon gnb-icon myaccount-icon" ></span>
+  </a>
+ 
 
-var json = Purpose_data;
-var pieJson = {};
-json.purpose.forEach(function (purpose, index) {
-  pieJson[purpose] = json.count[index];
-});
+  
+</nav>
 
-
- var chartPurpose = c3.generate({
-                    bindto: '#chart-purpose',
-                    data: {
-                        json: pieJson,
-                        type: 'pie',
-                        empty: {
-                            label: {
-                                text: "No Data"
-                            }
-                        }
-                    },
-                    color: {
-                        pattern: ['#d62728', '#ff7f0e', '#8c564b', '#ffbb78', '#ff9896', '#7f7f7f', '#c7c7c7']
-                    },
-                    pie: {
-                        label: {
-                            format: function (value) {
-                                return value;
-                            }
-                        }
-                    }
-                });
-
-
-
-
-
-});
-
-
-  // attack_url.php
- $.post("http://topnailart.iwinv.net/site_attack_url.php",
-   {
-        domain_idx:domain_idx
+     <script type="text/javascript" charset="utf-8" src="js/PushNotification.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
     
-       },
-   function(data) {
-   
-var url_data = $.parseJSON(data);
+    <script type="text/javascript">
+        app.initialize();
 
-
-var json = url_data;
-var pieJson = {};
-json.uri.forEach(function (uri, index) {
-  pieJson[uri] = json.count[index];
-});
-
-
-var chartUrls = c3.generate({
-                    bindto: '#chart-urls',
-                    data: {
-                        json: pieJson,
-                        type: 'pie',
-                        empty: {
-                            label: {
-                                text: "No Data"
-                            }
-                        }
-                    },
-                    color: {
-                        pattern: ['#d62728', '#ff7f0e', '#8c564b', '#ffbb78', '#ff9896', '#7f7f7f', '#c7c7c7']
-                    },
-                    pie: {
-                        label: {
-                            format: function (value) {
-                                return value;
-                            }
-                        }
-                    }
-                });
+    </script>
+     <script type="text/javascript" src="js/common.js"></script>
+     
 
 
 
-
-
-});
-
-
-   }
-
-
-
-   function pop_close(){
-    app.popup.close("#pop_contents");
-    
-
-   }
-
-    
-
-</script>
 </body>
+
+
 </html>
+        <script type="text/javascript">
+         
+ site_list();
+</script>
