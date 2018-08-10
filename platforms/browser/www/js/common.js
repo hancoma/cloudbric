@@ -127,3 +127,6 @@ function site_list() {
    });
 
 }
+function dashboard() {
+   location.replace('dashboard.html') ;  
+}
