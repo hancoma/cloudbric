@@ -4,11 +4,9 @@ var language = window.localStorage.getItem("language");
 var uuid=device.uuid;
 var room_no=0;
 var menu;
-function trans_show() {
-  
-    $("#trans_modal").addClass('active');
+function main_show() {
+  location.replace('main.html') ;  
 }
-
 
 
 
