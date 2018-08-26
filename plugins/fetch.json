@@ -18,7 +18,7 @@
     "cordova-plugin-media-capture": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-media-capture@~1.4.3"
+            "id": "cordova-plugin-media-capture@~1.2.0"
         },
         "is_top_level": true,
         "variables": {}
@@ -26,7 +26,7 @@
     "cordova-plugin-file": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-file@^4.0.0"
+            "id": "cordova-plugin-file"
         },
         "is_top_level": false,
         "variables": {}
@@ -34,7 +34,7 @@
     "cordova-plugin-compat": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-compat@^1.0.0"
+            "id": "cordova-plugin-compat"
         },
         "is_top_level": false,
         "variables": {}
@@ -135,14 +135,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-splashscreen": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-splashscreen@~3.2.1"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-statusbar": {
         "source": {
             "type": "registry",
@@ -163,30 +155,6 @@
         "source": {
             "type": "registry",
             "id": "cordova-plugin-whitelist@~1.2.1"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-barcodescanner": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-barcodescanner"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-sms": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-sms"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-sim": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-sim"
         },
         "is_top_level": true,
         "variables": {}
