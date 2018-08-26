@@ -127,6 +127,10 @@ function site_list() {
    });
 
 }
+function site_show() {
+   location.replace('main.html') ;
+
+  }
 function alarm_show() {
 $("#site_list").hide();
     $("#alarm_list").show();
