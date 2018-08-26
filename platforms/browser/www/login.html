@@ -132,7 +132,7 @@
     var email=$("#email").val();
     var password=$("#password").val();
     $.ajax({
-    url: "https://api-dev.cloudbric.com/v2/authority",
+    url: "https://api-dev.cloudbric.com/v2/authority/password_check",
     beforeSend: function(xhr) { 
       xhr.setRequestHeader("X-Cloudbric-Key", "zzg0cockog4g0sk4kgcc44ow0go40sw88wkkg8ks"); 
     },
@@ -140,12 +140,13 @@
     dataType: 'json',
     contentType: 'application/json',
     processData: false,
-    data: '{"email": "'+email+'"}',
+    data: '{"email": "'+email+'", "password": "'+password+'"}',
     success: function (data) {
       var data = JSON.stringify(data);
       var data = JSON.parse(data);
       var user_idx=data.result;
-      alert(user_idx);
+      alert_msg("MSG","You are logged in. Thank you.");
+       location.replace('main.html') ;
     },
     error: function(){
       alert("Cannot get data");

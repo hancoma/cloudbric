@@ -113,6 +113,8 @@ function logout() {
 
 
 function site_list() {
+  $("#site_list").show();
+    $("#alarm_list").hide();
     $("#site_list").html('');
    $.post("http://topnailart.iwinv.net/sitelist_new.php",
    {
@@ -123,6 +125,22 @@ function site_list() {
    
     
    });
+
+}
+function alarm_show() {
+$("#site_list").hide();
+    $("#alarm_list").show();
+    $("#alarm_list").html('');
+   $.post("http://topnailart.iwinv.net/alarm_list.php",
+   {
+    
+       },
+   function(data){
+     $("#alarm_list").html(data);
+   
+    
+   });
+ 
 
 }
 function dashboard() {
