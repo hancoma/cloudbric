@@ -1,771 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="theme-color" content="#2196f3">
-  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:">
-  <title>Framework7</title>
-  <link rel="stylesheet" href="assets-mobile/framework7/css/framework7.min.css">
-  <link rel="stylesheet" href="assets-mobile/framework7/css/app.css">
-  <link rel="apple-touch-icon" href="img/f7-icon-square.png">
-  <link rel="icon" href="img/f7-icon.png">
-</head>
-<body>
-  <div id="app">
-    <div class="statusbar"></div>
-    <div class="panel panel-left panel-cover">
-      <div class="page">
-        <div class="page-content">
-          <div class="block-title">Left Panel</div>
-          <div class="block">
-            <p>This is a left side panel. You can close it by clicking outsite or on this link: <a href="#" class="panel-close">close me</a>. You can put here anything, even another isolated view like in <a href="#" data-panel="right" class="panel-open">Right Panel</a></p>
-          </div>
-          <div class="block-title">Main View Navigation</div>
-          <div class="list links-list">
-            <ul>
-              <li>
-                <a href="/accordion/" class="panel-close">Accordion</a>
-              </li>
-              <li>
-                <a href="/action-sheet/" class="panel-close">Action Sheet</a>
-              </li>
-              <li>
-                <a href="/badge/" class="panel-close">Badge</a>
-              </li>
-              <li>
-                <a href="/buttons/" class="panel-close">Buttons</a>
-              </li>
-              <li>
-                <a href="/cards/" class="panel-close">Cards</a>
-              </li>
-              <li>
-                <a href="/checkbox/" class="panel-close">Checkbox</a>
-              </li>
-              <li>
-                <a href="/chips/" class="panel-close">Chips/Tags</a>
-              </li>
-              <li>
-                <a href="/contacts-list/" class="panel-close">Contacts List</a>
-              </li>
-              <li>
-                <a href="/data-table/" class="panel-close">Data Table</a>
-              </li>
-            </ul>
-          </div>
-          <div class="block">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse faucibus mauris leo, eu bibendum neque congue non. Ut leo mauris, eleifend eu commodo a, egestas ac urna. Maecenas in lacus faucibus, viverra ipsum pulvinar, molestie arcu. Etiam lacinia venenatis dignissim. Suspendisse non nisl semper tellus malesuada suscipit eu et eros. Nulla eu enim quis quam elementum vulputate. Mauris ornare consequat nunc viverra pellentesque. Aenean semper eu massa sit amet aliquam. Integer et neque sed libero mollis elementum at vitae ligula. Vestibulum pharetra sed libero sed porttitor. Suspendisse a faucibus lectus.</p>
-            <p>Duis ut mauris sollicitudin, venenatis nisi sed, luctus ligula. Phasellus blandit nisl ut lorem semper pharetra. Nullam tortor nibh, suscipit in consequat vel, feugiat sed quam. Nam risus libero, auctor vel tristique ac, malesuada ut ante. Sed molestie, est in eleifend sagittis, leo tortor ullamcorper erat, at vulputate eros sapien nec libero. Mauris dapibus laoreet nibh quis bibendum. Fusce dolor sem, suscipit in iaculis id, pharetra at urna. Pellentesque tempor congue massa quis faucibus. Vestibulum nunc eros, convallis blandit dui sit amet, gravida adipiscing libero.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-right panel-reveal">
-      <div class="view view-init view-right" name="right" data-url="/">
-        <div class="page">
-          <div class="navbar">
-            <div class="navbar-inner sliding">
-              <div class="title">Right Panel</div>
-            </div>
-          </div>
-          <div class="page-content">
-            <div class="block">
-              <p>This is a right side panel. You can close it by clicking outsite or on this link: <a href="#" class="panel-close">close me</a>. You can put here anything, even another isolated view.</p>
-            </div>
-            <div class="block-title">Panel Navigation</div>
-            <div class="list links-list">
-              <ul>
-                <li><a href="/panel-right-1/">Right panel page 1</a></li>
-                <li><a href="/panel-right-2/">Right panel page 2</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="view view-main view-init ios-edges" data-url="/">
-      <div class="page">
-        <div class="navbar">
-          <div class="navbar-inner">
-            <div class="left">
-              <a href="#" class="link icon-only panel-open" data-panel="left">
-                <i class="icon f7-icons ios-only">menu</i>
-                <i class="icon material-icons md-only">menu</i>
-              </a>
-            </div>
-            <div class="title sliding">Framework7</div>
-            <div class="right">
-              <a class="link icon-only searchbar-enable" data-searchbar=".searchbar-components">
-                <i class="icon f7-icons ios-only">search_strong</i>
-                <i class="icon material-icons md-only">search</i>
-              </a>
-            </div>
-            <form data-search-container=".components-list" data-search-in="a" class="searchbar searchbar-expandable searchbar-components searchbar-init">
-              <div class="searchbar-inner">
-                <div class="searchbar-input-wrap">
-                  <input type="search" placeholder="Search components"/>
-                  <i class="searchbar-icon"></i>
-                  <span class="input-clear-button"></span>
-                </div>
-                <span class="searchbar-disable-button">Cancel</span>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="page-content">
-          <div class="list searchbar-hide-on-search">
-            <ul>
-              <li>
-                <a class="item-content item-link" href="/about/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">About Framework7</div>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="block-title searchbar-found">Components</div>
-          <div class="list components-list searchbar-found">
-            <ul>
-                      <li>
-                <a class="item-content item-link" href="/reset-pasword/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">reset-pasword</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-      
-              <li>
-                <a class="item-content item-link" href="/accordion/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Accordion</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/action-sheet/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Action Sheet</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/autocomplete/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Autocomplete</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/badge/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Badge</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/buttons/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Buttons</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/calendar/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Calendar / Date Picker</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/cards/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Cards</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/checkbox/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Checkbox</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/chips/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Chips / Tags</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/contacts-list/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Contacts List</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/content-block/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Content Block</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/data-table/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Data Table</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/dialog/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Dialog</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/fab/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">FAB</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/fab-morph/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">FAB Morph</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/form-storage/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Form Storage</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/icons/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Icons</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/infinite-scroll/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Infinite Scroll</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/inputs/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Inputs</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/grid/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Grid / Layout Grid</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/lazy-load/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Lazy Load</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/list/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">List View</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/list-index/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">List Index</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/login-screen/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Login Screen</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/messages/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Messages</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/navbar/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Navbar</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/notifications/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Notifications</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/panel/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Panel / Side Panels</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/picker/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Picker</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/photo-browser/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Photo Browser</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/popup/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Popup</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/popover/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Popover</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/preloader/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Preloader</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/progressbar/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Progress Bar</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/pull-to-refresh/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Pull To Refresh</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/radio/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Radio</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/range/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Range Slider</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/searchbar/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Searchbar</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/searchbar-expandable/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Searchbar Expandable</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/sheet-modal/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Sheet Modal</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/smart-select/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Smart Select</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/sortable/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Sortable List</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/statusbar/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Statusbar</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/stepper/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Stepper</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/subnavbar/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Subnavbar</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/swipeout/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Swipeout (Swipe To Delete)</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/swiper/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Swiper Slider</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/tabs/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Tabs</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/timeline/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Timeline</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/toast/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Toast</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/toggle/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Toggle</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/toolbar-tabbar/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Toolbar & Tabbar</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/virtual-list/">
-                  <div class="item-media"><i class="icon icon-f7"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">Virtual List</div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a class="item-content item-link" href="/vi/">
-                  <div class="item-media"><i class="icon icon-vi"></i></div>
-                  <div class="item-inner">
-                    <div class="item-title">vi - Mobile Video SSP</div>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="list simple-list searchbar-not-found">
-            <ul>
-              <li>Nothing found</li>
-            </ul>
-          </div>
-          <div class="block-title searchbar-hide-on-search">Themes</div>
-          <div class="list links-list searchbar-hide-on-search">
-            <ul>
-              <li>
-                <a href="./index.html?theme=ios" class="external">iOS Theme</a>
-              </li>
-              <li>
-                <a href="./index.html?theme=md" class="external">Material (MD) Theme</a>
-              </li>
-              <li>
-                <a href="/color-themes/">Color Themes</a>
-              </li>
-            </ul>
-          </div>
-          <div class="block-title searchbar-hide-on-search">Page Loaders & Router</div>
-          <div class="list links-list searchbar-hide-on-search">
-            <ul>
-              <li>
-                <a href="/page-loader-template7/vladimir/123/about-me/1/?start=0&end=30#top">Template7 Page</a>
-              </li>
-              <li>
-                <a href="/page-loader-component/vladimir/123/about-me/1/?start=0&end=30#top">Component Page</a>
-              </li>
-              <li>
-                <a href="/load-something-that-doesnt-exist/">Default Route (404)</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="login-screen">
-  <!-- Default view-page layout -->
-  <div class="view">
-    <div class="page">
-      <!-- page-content has additional login-screen content -->
-      <div class="page-content login-screen-content">
-        <div class="login-screen-title">Welcome to Cloudbric</div>
-        <!-- Login form -->
-        <form>
-          <div class="list">
-            <ul>
-              <li class="item-content item-input">
-                <div class="item-inner">
-                  <div class="item-title item-label">Email Address</div>
-                  <div class="item-input-wrap">
-                    <input type="text" name="username" placeholder="Email Address">
-                    <span class="input-clear-button"></span>
-                  </div>
-                </div>
-              </li>
-              <li class="item-content item-input">
-                <div class="item-inner">
-                  <div class="item-title item-label">Password</div>
-                  <div class="item-input-wrap">
-                    <input type="password" name="password" placeholder="Password">
-                    <span class="input-clear-button"></span>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="list">
-            <ul>
-              <li>
-                <div class="block">
-                 <span class="col button button-fill">Login In</span>
-                
-              </div>
-              </li>
-            </ul>
-            <div class="block-footer" onclick="join_screen();">Create Account</div>
-            <div class="block-footer"><a onclick="reset_password();">Forget your password?</a></div>
-                <div class="block">
-                 <span class="col button button-fill">facebook</span>
-                
-              </div>
-                  <div class="block">
-                 <span class="col button button-fill">google</span>
-                
-              </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="popup join_screen">
-  <!-- Default view-page layout -->
-<div class="views">
-        <div class="view view-main">
 
-    <div class="page" style="padding:30px; text-align: center;">
-                    <div class="page-content login-screen-content">
-                        <div class="login-image">
-                            <img src="assets-mobile/img/main-auth.png" alt="Cloudbric auth logo">
-                        </div>
-                        <div class="login-screen-title">Create New Account</div>
-                        
-                            <div class="list">
-                                <ul>
-                                    <li class="item-content item-input">
-                                        <div class="item-inner">
-                                            <div class="item-input-wrap">
-                                                <input type="text" name="username" id="inputName" class="input-item" placeholder="Name" value="">
-                                                <span class="input-clear-button"></span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="item-content item-input">
-                                        <div class="item-inner">
-                                            <div class="item-input-wrap">
-                                                <input type="text" name="useremail" id="inputEmail" class="input-item" placeholder="E-mail Address" value="">
-                                                <span class="input-clear-button"></span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="item-content item-input">
-                                        <div class="item-inner">
-                                            <div class="item-input-wrap">
-                                                <input type="password" name="userpw" id="inputPw" class="input-item" placeholder="password" value="">
-                                                <span class="input-clear-button"></span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="item-content item-input">
-                                        <div class="item-inner">
-                                            <div class="item-input-wrap">
-                                                <input type="password" name="userpwconfirm" id="inputPwConfirm" class="input-item" placeholder="Re-enter Password" value="">
-                                                <span class="input-clear-button"></span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="agreement-description">
-                                        <p>By clicking Sign Up, you agree to our <a href="https://www.cloudbric.com/privacy-policy/" class="link external">Privacy Policy</a>, <a href="https://www.cloudbric.com/acceptable-use-policy/" class="link external">Acceptable Use Policy</a> and <a href="https://www.cloudbric.com/service-level-agreement-cloudbric/" class="link external">Service Level Agreement</a>.</p>
-                                    </li>
-                                    <li class="item-content item-input">
-                                        <div class="item-inner">
-                                            <div class="item-input-wrap">
-                                                <button type="button" id="submitButton" class="button button-fill color-blue no-fastclick" onclick="join_submit()" >Sign Up</button>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="item-content item-input">
-                                        <a class="link popup-close" href="#">Back</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        
-                    </div>
-                </div>
-              </div>
-  </div>
-</div>
- <div class="popup reset_password">
-    <div class="block">
-      <p>About</p>
-      <!-- Close Popup -->
-      <p><a class="link popup-close" href="#">Close popup</a></p>
-      <p>Don't worry. it happens!</p>
-      <p>Please enter your email address to</p>
-      <p>request a password reset</p>
-    </div>
-  </div>
-  <div class="popup popup-services">
-    <div class="block">
-      <p>Services</p>
-      <!-- Close Popup -->
-      <p><a class="link popup-close" href="#">Close popup</a></p>
-      <p>Lorem ipsum dolor sit amet...</p>
-    </div>
-  </div>
-  <script src="assets-mobile/framework7/js/framework7.min.js"></script>
-  <script src="assets-mobile/js/routes.js"></script>
-  <script src="assets-mobile/js/app.js"></script>
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script>
-  
-    app.loginScreen.open(".login-screen");
-    function join_screen() {
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' gallerybear.com * gap: ws: https://ssl.gstatic.com;img-src * data: content:;style-src 'self' 'unsafe-inline' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;">
+
+
    
-   app.popup.open(".join_screen"); 
-  }
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+      <link href="css/ratchet.min.css" rel="stylesheet">
+       <link href="css/ratchet-theme-ios.css" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="css/uikit.gradient.min.css">
+
+
+          <script src="js/uikit.js"></script>
+          <script src="js/ratchet.js"></script>
+             <link rel="stylesheet" type="text/css" href="css/app.css" />
+             <link rel="stylesheet" type="text/css" href="css/login.css" />
+                   <link href="css/style.css" rel="stylesheet">
+                    <script type="text/javascript" src="cordova.js"></script>
+                    
+                    <!-- include summernote css/js-->
+
+    <title>Hello World</title>
+</head>
+
+<body>
+<header class="bar bar-nav">
+
+  <h1 class="title">LOGIN</h1>
+</header>
+
+ <div class="uk-grid" style="overflow-y: scroll;" >
+    
+          <div id="login_contents" style="width:100%; height:100%;  padding-top:100px;" class="uk-width-1-1 uk-container-center uk-text-center">
+                      
+                                
+                                                      <div class="uk-container-center" >
+                                                          <img src="assets-mobile/img/main-auth.png" alt="Cloudbric auth logo">
+                                                      </div>
+                                                      <div class="login-screen-title uk-text-primary uk-text-bold uk-text-large" >Welcome to Cloudbric!</div>
+<div class='uk-width-7-10 uk-container-center' style="margin-top:5%;">
+        <form class="input-group" style="border:0px;">
+              <input type="email" placeholder="Email"  id="email">
+              <input type="password" placeholder="Password"  id="password">
+
+            <label class="uk-text-left uk-width-1-1 uk-text-muted" style="float:left; margin:5px;" ><input type="checkbox">  Keep me signed in</label>
+            <button class="uk-button uk-button-primary uk-width-1-1 " type="button" onclick="login_submit()">LOGIN</button>
+        
+        </form>
+        <ul class="uk-list uk-text-muted list">
+            <li><a href="#join_modal">Create Account</a></li>
+            <li>Forgot your password?</li>
+         <li class="sign-divider">or</li>
+         <li class="sign-sns-item">
+            <img src="img/facebook.png">
+        </li>
+        <li class="sign-sns-item">
+            <img src="img/google.png">
+        </li>
+        </ul>
+   
+
+
+
+
+</div>
+
+          </div>
+    
+</div>
+
+
+<div id="join_modal" class="modal">
+  <header class="bar bar-nav">
+    <a class="icon icon-close pull-right" href="#join_modal"></a>
+    <h1 class="title">Create New Account</h1>
+  </header>
+
+  <div class="uk-grid" style="overflow-y: scroll;" >
+    
+          <div id="login_contents" style="width:100%; height:100%;  padding-top:100px;" class="uk-width-1-1 uk-container-center uk-text-center">
+                      
+                                
+                                                      <div class="uk-container-center" >
+                                                          <img src="assets-mobile/img/main-auth.png" alt="Cloudbric auth logo">
+                                                      </div>
+                                                      <div class="login-screen-title uk-text-primary uk-text-bold uk-text-large" >Create New Account</div>
+<div class='uk-width-7-10 uk-container-center' style="margin-top:5%;">
+        <form class="input-group" style="border:0px;">
+              <input type="text" placeholder="name"  id="join_name">
+              <input type="email" placeholder="E-mail Address"  id="join_email">
+              <input type="password" placeholder="Password"  id="join_password">
+              <input type="password" placeholder="Re-enter Password"  id="join_re_password">
+
+            <label class="uk-text-left uk-width-1-1 uk-text-muted" style="float:left; margin:5px;" ><p class="">By clicking Sign Up, you agree to our <a href="https://www.cloudbric.com/privacy-policy/" class="link external">Privacy Policy</a>, <a href="https://www.cloudbric.com/acceptable-use-policy/" class="link external">Acceptable Use Policy</a> and <a href="https://www.cloudbric.com/service-level-agreement-cloudbric/" class="link external">Service Level Agreement</a>.</p></label>
+            <button class="uk-button uk-button-primary uk-width-1-1 " type="button" onclick="join_submit()">SIGN UP</button>
+        
+        </form>
+       
+   
+
+
+
+
+</div>
+
+          </div>
+    
+</div>
+</div>
+
+
+<style>
+.sign-divider {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+}
+.sign-sns-item{
+    margin-bottom: 10px;
+}
+
+</style>
+<script>
+    function login_submit() {
+    var email=$("#email").val();
+    var password=$("#password").val();
+    $.ajax({
+    url: "https://api-dev.cloudbric.com/v2/authority",
+    beforeSend: function(xhr) { 
+      xhr.setRequestHeader("X-Cloudbric-Key", "zzg0cockog4g0sk4kgcc44ow0go40sw88wkkg8ks"); 
+    },
+    type: 'POST',
+    dataType: 'json',
+    contentType: 'application/json',
+    processData: false,
+    data: '{"email": "'+email+'"}',
+    success: function (data) {
+      var data = JSON.stringify(data);
+      var data = JSON.parse(data);
+      var user_idx=data.result;
+      alert(user_idx);
+    },
+    error: function(){
+      alert("Cannot get data");
+    }
+});
+   }
+
    function join_submit() {
-    var name=$("#inputName").val();
-    var email=$("#inputEmail").val();
+    var name=$("#join_name").val();
+    var email=$("#join_email").val();
+    var password=$("#join_password").val();
+        var re_password=$("#join_re_password").val();
     $.ajax({
     url: "https://api-dev.cloudbric.com/v2/users",
     beforeSend: function(xhr) { 
@@ -779,33 +171,75 @@
     success: function (data) {
       var data = JSON.stringify(data);
       var data = JSON.parse(data);
-      
-      var user_idx=data.result_info.user_idx;
-      save_user_idx(user_idx);
+      var user_idx=data.result;
+      alert_msg("Congratulations","you are a member.")
+       $("#join_modal").removeClass('active');
     },
     error: function(){
-      alert("Cannot get data");
+      alert_msg("Error","You are not a member. Please join me again.");
     }
 });
    }
 
-   function save_user_idx(user_idx) {
-    var user_idx=user_idx;
-   
-     $.post("http://topnailart.iwinv.net/save_user_idx.php",
-   {
-    
-       
-        user_idx:user_idx
-    
-       },
-   function(data){
-    window.localStorage.setItem("user_idx", user_idx);
-    alert('등록되었습니다.');
-   });
-   }
-   
+</script>
+
+                           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="bar bar-tab bar-footer">
+  <a class="tab-item active" id="main_icon" href="#" onclick="site_list();">
+    <span class="icon gnb-icon home-icon" ></span>
+  </a>
+ 
+  <a class="tab-item active" id="chart_icon" href="#" onclick="dashboard_show()">
+    <span class="icon gnb-icon dashboard-icon" ></span>
+  </a>
+ 
+  <a class="tab-item active" id="chart_icon" href="#" onclick="chat_show()">
+    <span class="icon gnb-icon alarm-icon" ></span>
+  </a>
+
+<a class="tab-item active" id="chart_icon" href="#" onclick="chat_show()">
+    <span class="icon gnb-icon wallet-icon" ></span>
+  </a>
+ 
+<a class="tab-item active" id="chart_icon" href="#" onclick="chat_show()">
+    <span class="icon gnb-icon myaccount-icon" ></span>
+  </a>
+ 
+
   
-  </script>
+</nav>
+
+     <script type="text/javascript" charset="utf-8" src="js/PushNotification.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    
+    <script type="text/javascript">
+        app.initialize();
+
+    </script>
+     <script type="text/javascript" src="js/common.js"></script>
+     
+
+
+
 </body>
+
+
 </html>
