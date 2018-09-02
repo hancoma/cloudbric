@@ -91,12 +91,15 @@
                                                           <img src="assets-mobile/img/main-auth.png" alt="Cloudbric auth logo">
                                                       </div>
                                                       <div class="login-screen-title uk-text-primary uk-text-bold uk-text-large" >Create New Account</div>
-<div class='uk-width-7-10 uk-container-center' style="margin-top:5%;">
+<div class='uk-width-8-10 uk-container-center' style="margin-top:5%;">
         <form class="input-group" style="border:0px;">
-              <input type="text" placeholder="name"  id="join_name">
-              <input type="email" placeholder="E-mail Address"  id="join_email">
-              <input type="password" placeholder="Password"  id="join_password">
-              <input type="password" placeholder="Re-enter Password"  id="join_re_password">
+          <ul class="table-view">
+  <li class="table-view-cell">
+              <input type="text" placeholder="name"  id="join_name" onmouseout="name_check();" ><span class="badge badge-negative">!</span></li>
+            <li class="table-view-cell">   <input type="email" placeholder="E-mail Address"  id="join_email"><span class="badge">!</span></li>
+            <li class="table-view-cell">   <input type="password" placeholder="Password"  id="join_password"><span class="badge">!</span></li>
+            <li class="table-view-cell">   <input type="password" placeholder="Re-enter Password"  id="join_re_password"><span class="badge">!</span></li>
+          </ul>
 
             <label class="uk-text-left uk-width-1-1 uk-text-muted" style="float:left; margin:5px;" ><p class="">By clicking Sign Up, you agree to our <a href="https://www.cloudbric.com/privacy-policy/" class="link external">Privacy Policy</a>, <a href="https://www.cloudbric.com/acceptable-use-policy/" class="link external">Acceptable Use Policy</a> and <a href="https://www.cloudbric.com/service-level-agreement-cloudbric/" class="link external">Service Level Agreement</a>.</p></label>
             <button class="uk-button uk-button-primary uk-width-1-1 " type="button" onclick="join_submit()">SIGN UP</button>
@@ -128,6 +131,15 @@
 
 </style>
 <script>
+  function name_check() {
+    var name=$("#join_name").val();
+    var name_length=name.length;
+    alert(name_length);
+    if (name_length<20) {
+      $("#join_name").addClass("focus_form");
+    }
+
+  }
     function login_submit() {
     var email=$("#email").val();
     var password=$("#password").val();
@@ -183,6 +195,11 @@
    }
 
 </script>
+<style>
+.focus_form {
+  background-color: #FC87C9;
+}
+</style>
 
                            
 
