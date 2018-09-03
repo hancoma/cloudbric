@@ -95,10 +95,10 @@
         <form class="input-group" style="border:0px;">
           <ul class="table-view">
   <li class="table-view-cell">
-              <input type="text" placeholder="name"  id="join_name" onmouseout="name_check();" ><span class="badge badge-negative">!</span></li>
-            <li class="table-view-cell">   <input type="email" placeholder="E-mail Address"  id="join_email"><span class="badge">!</span></li>
-            <li class="table-view-cell">   <input type="password" placeholder="Password"  id="join_password"><span class="badge">!</span></li>
-            <li class="table-view-cell">   <input type="password" placeholder="Re-enter Password"  id="join_re_password"><span class="badge">!</span></li>
+              <input type="text" placeholder="name"  id="join_name" onmouseout="name_check();" ><span class="badge badge-negative badge-hide" id="name_badge">!</span></li>
+            <li class="table-view-cell">   <input type="email" placeholder="E-mail Address"  id="join_email"><span class="badge badge-negative badge-hide"  id="email_badge">!</span></li>
+            <li class="table-view-cell">   <input type="password" placeholder="Password"  id="join_password"><span class="badge badge-negative badge-hide"  id="password_badge">!</span></li>
+            <li class="table-view-cell">   <input type="password" placeholder="Re-enter Password"  id="join_re_password"><span class="badge badge-negative badge-hide"  id="password2_badge">!</span></li>
           </ul>
 
             <label class="uk-text-left uk-width-1-1 uk-text-muted" style="float:left; margin:5px;" ><p class="">By clicking Sign Up, you agree to our <a href="https://www.cloudbric.com/privacy-policy/" class="link external">Privacy Policy</a>, <a href="https://www.cloudbric.com/acceptable-use-policy/" class="link external">Acceptable Use Policy</a> and <a href="https://www.cloudbric.com/service-level-agreement-cloudbric/" class="link external">Service Level Agreement</a>.</p></label>
@@ -128,7 +128,9 @@
 .sign-sns-item{
     margin-bottom: 10px;
 }
-
+.badge-hide {
+  display:none;
+}
 </style>
 <script>
   function name_check() {
