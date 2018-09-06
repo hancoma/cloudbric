@@ -180,6 +180,21 @@ if(!regEmail.test(email)) {
       $("#join_password").addClass("input_error");
     }
   }
+   function password_re_check() {
+    var password=$("#join_password").val().replace(/ /g, '');
+    var re_password=$("#join_re_password").val().replace(/ /g, '');
+    var password_length=password.length;
+    if (password_length<8 != password_length>20 ) {
+      alert_msg('error','Please enter a password between 8 and 20 characters.');
+      $("#password_badge").removeClass("badge-hide");
+      $("#join_password").addClass("input_error");
+    }
+    if (password != re_password){
+       alert_msg('error','Password confirmation is different.');
+       $("#password2_badge").removeClass("badge-hide");
+      $("#join_re_password").addClass("input_error");
+    }
+  }
   function name_check() {
     var name=$("#join_name").val().replace(/ /g, '');;
     var name_length=name.length;
