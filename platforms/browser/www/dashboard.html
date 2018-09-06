@@ -32,6 +32,7 @@
 
 <body>
 <header class="bar bar-nav">
+    <a class="icon icon-left-nav pull-left" onclick="main_show();"></a>
  <a class="icon icon-gear pull-right"  onclick="open_right();"></a>
 
   <h1 class="title">Dashboard</h1>
@@ -214,11 +215,9 @@
 
 
 <nav class="bar bar-tab bar-footer">
-  <a class="tab-item active" id="main_icon" href="#" onclick="main_show();">
-    <span class="icon gnb-icon home-icon" ></span>
-  </a>
+  
  
-  <a class="tab-item active" id="chart_icon" href="#" onclick="dashboard_show()">
+  <a class="tab-item active" id="chart_icon" href="#" onclick="main_show();">
     <span class="icon gnb-icon dashboard-icon" ></span>
   </a>
  

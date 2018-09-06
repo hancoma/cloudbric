@@ -4,8 +4,18 @@ var language = window.localStorage.getItem("language");
 var uuid=device.uuid;
 var room_no=0;
 var menu;
+var mode;
 function main_show() {
+  if (mode=="alarm") {
+     $("#alarm_list").hide();
+     $("#site_list").show();
+     mode="dash_board";
+    return;
+
+  }
+  mode="site_list";
   location.replace('main.html') ;  
+
 }
 
 
@@ -132,6 +142,7 @@ function site_show() {
 
   }
 function alarm_show() {
+  mode="alarm";
 $("#site_list").hide();
     $("#alarm_list").show();
     $("#alarm_list").html('');
@@ -145,7 +156,6 @@ $("#site_list").hide();
     
    });
  
-
 }
 function dashboard() {
    location.replace('dashboard.html') ;  
