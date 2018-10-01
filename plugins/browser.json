@@ -1,85 +1,91 @@
 {
-  "prepare_queue": {
-    "installed": [],
-    "uninstalled": []
-  },
-  "config_munge": {
-    "files": {}
-  },
-  "installed_plugins": {
-    "cordova-plugin-battery-status": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
     },
-    "cordova-plugin-camera": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
+    "config_munge": {
+        "files": {}
     },
-    "cordova-plugin-media-capture": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
+    "installed_plugins": {
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-plugin-barcodescanner": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-plugin-sms": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-plugin-sim": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-universal-links-plugin": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-plugin-browsertab": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        }
     },
-    "cordova-plugin-console": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
-    },
-    "cordova-plugin-contacts": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
-    },
-    "cordova-plugin-device": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
-    },
-    "cordova-plugin-device-motion": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
-    },
-    "cordova-plugin-device-orientation": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
-    },
-    "cordova-plugin-dialogs": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
-    },
-    "cordova-plugin-file-transfer": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
-    },
-    "cordova-plugin-geolocation": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
-    },
-    "cordova-plugin-globalization": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
-    },
-    "cordova-plugin-inappbrowser": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
-    },
-    "cordova-plugin-media": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
-    },
-    "cordova-plugin-network-information": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
-    },
-    "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
-    },
-    "cordova-plugin-statusbar": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
-    },
-    "cordova-plugin-vibration": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
-    },
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
-    },
-    "cordova-plugin-barcodescanner": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
-    },
-    "cordova-plugin-sms": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
-    },
-    "cordova-plugin-sim": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.cloudbric.hancoma"
+        }
     }
-  },
-  "dependent_plugins": {
-    "cordova-plugin-compat": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
-    },
-    "cordova-plugin-file": {
-      "PACKAGE_NAME": "com.cloudbric.hancoma"
-    }
-  }
 }

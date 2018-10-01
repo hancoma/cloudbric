@@ -4,6 +4,16 @@
     <description>클라우드브릭</description>
     <author email="ch7@daum.net" href="https://www.cloudbric.com/">김대경</author>
     <content src="index.html" />
+    <universal-links>
+        <host name="cloudbric.page.link" scheme="https" />
+        <host name="cloudbric-app.firebaseapp.com" scheme="https">
+            <path url="/__/auth/callback" />
+        </host>
+    </universal-links>
+    <gap:plugin name="com.phonegap.plugins.facebookconnect" version="0.8.0">
+        <param name="APP_ID" value="1543180129162204" />
+        <param name="APP_NAME" value="cloudbric" />
+    </gap:plugin>
     <icon src="icon.png" />
     <access origin="*" />
     <access launch-external="true" origin="tel:*" />
@@ -11,6 +21,7 @@
     <preference name="android-minSdkVersion" value="14" />
     <preference name="fullscreen" value="false" />
     <preference name="android-windowSoftInputMode" value="adjustResize" />
+    <preference name="AndroidLaunchMode" value="singleTask" />
     <preference name="phonegap-version" value="cli-6.5.0" />
     <preference name="pgb-builder-version" value="2" />
     <preference name="android-build-tool" value="gradle" />

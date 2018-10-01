@@ -4,6 +4,7 @@
 
 <head>
     <meta charset="utf-8" />
+    <meta name="google-signin-client_id" content="727701252859-pst0ic7ck8afb27dar4iod6p9vitc72e.apps.googleusercontent.com">
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
@@ -23,7 +24,8 @@
              <link rel="stylesheet" type="text/css" href="css/login.css" />
                    <link href="css/style.css" rel="stylesheet">
                     <script type="text/javascript" src="cordova.js"></script>
-                    
+                    <script type="text/javascript" src="js/phonegap.facebook.inappbrowser.js"></script>
+                    <script src="https://apis.google.com/js/platform.js" async defer></script>
                     <!-- include summernote css/js-->
 
     <title>Hello World</title>
@@ -58,10 +60,10 @@
             <li>Forgot your password?</li>
          <li class="sign-divider">or</li>
          <li class="sign-sns-item">
-            <img src="img/facebook.png">
+            <img src="img/facebook.png" onclick="login_fb();">
         </li>
-        <li class="sign-sns-item">
-            <img src="img/google.png">
+        <li class="sign-sns-item"><div class="g-signin2" data-onsuccess="onSignIn"></div>
+            <img src="img/google.png" onclick="">
         </li>
         </ul>
    
@@ -69,7 +71,7 @@
 
 
 
-</div>
+</div><div id="fb-root"></div>
 
           </div>
     
@@ -136,6 +138,7 @@
 }
 </style>
 <script>
+
   $("#join_name").focusout(function(){
     name_check();
   });
@@ -360,6 +363,31 @@ if(!regEmail.test(email)) {
 });
    }
 
+
+             function login_fb() {
+
+            FacebookInAppBrowser.settings.appId = '1405670032986370';
+            FacebookInAppBrowser.settings.redirectUrl = 'http://www.facebook.com/connect/login_success.html';
+            FacebookInAppBrowser.settings.permissions = 'email';
+
+            var loginSuccessCallback = function() {
+                        alert('Login successful');
+                        console.log(window.localStorage.getItem('accessToken'));
+                    },
+                    loginUnknowErrorCallback = function() {
+                        alert('Do you want to try again?');
+                    };
+
+            FacebookInAppBrowser.login(loginSuccessCallback, loginUnknowErrorCallback);
+        }
+     
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
 </script>
 <style>
 .focus_form {
