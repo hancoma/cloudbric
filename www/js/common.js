@@ -141,6 +141,25 @@ function site_show() {
    location.replace('main.html') ;
 
   }
+  function close_modal(modal_name) {
+    var modal_name=modal_name;
+    var class_name="#"+modal_name;
+    $(class_name).removeClass('active');
+  }
+  function alram_modal_show() {
+   
+    $("#alram_modal").addClass('active');
+ $.post("http://topnailart.iwinv.net/alarm_list.php",
+   {
+    
+       },
+   function(data){
+     $("#alram_contents").html(data);
+   
+    
+   });
+  }
+
 function alarm_show() {
   mode="alarm";
 $("#site_list").hide();
