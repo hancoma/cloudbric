@@ -179,3 +179,20 @@ $("#site_list").hide();
 function dashboard() {
    location.replace('dashboard.html') ;  
 }
+
+
+function setting_modal_show(domain_idx) {
+      var domain_idx=domain_idx;
+ 
+    $("#setting_modal").addClass('active');
+ $.post("http://topnailart.iwinv.net/site_info.php",
+   {
+
+       },
+   function(data){
+     var data=data;
+        $("#setting_contents").html(data);
+   
+    
+   });
+  }

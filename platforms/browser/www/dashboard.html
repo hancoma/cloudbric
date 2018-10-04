@@ -33,7 +33,7 @@
 <body>
 <header class="bar bar-nav">
     <a class="icon icon-left-nav pull-left" onclick="main_show();"></a>
- <a class="icon icon-gear pull-right"  onclick="open_right();"></a>
+ <a class="icon icon-gear pull-right"  onclick="setting_show();"></a>
 
   <h1 class="title">Dashboard</h1>
 </header>
@@ -179,6 +179,17 @@
   </header>
 
   <div class="content" id="alram_contents">
+    
+  </div>
+</div>
+<div id="setting_modal" class="modal">
+  <header class="bar bar-nav">
+      <a class="icon icon-left-nav pull-left" href="#setting_modal"></a>
+    
+    <h1 class="title">Settings</h1>
+  </header>
+
+  <div class="content" id="setting_contents">
     
   </div>
 </div>
@@ -660,8 +671,14 @@ function view_visit() {
 $("#attack_button").removeClass("button-active");
     $("#view_button").addClass("button-active");
 } 
+function setting_show() {
+  
+    setting_modal_show(domain_idx);
+    }
+
     </script>
      <script type="text/javascript" src="js/common.js"></script>
+
      
 
 
