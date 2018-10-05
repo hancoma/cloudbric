@@ -33,10 +33,7 @@
  <plugin name="cordova-universal-links-plugin" source="npm" />
  <plugin name="cordova-plugin-browsertab" source="npm" />
  <plugin name="cordova-plugin-inappbrowser" source="npm" />
- <plugin name="cordova-plugin-customurlscheme" version="0.8.0">
-        <param name="URL_SCHEME" value="com.firebase.cordova" />
-        
-    </plugin>
+
 
 <universal-links>
     <host name="cloudbric.page.link" scheme="https" />
