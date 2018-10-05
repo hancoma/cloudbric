@@ -54,10 +54,7 @@
   <plugin name='phonegap-plugin-push' />
     <param name="SENDER_ID" value="1:754220946157:android:5f8757cf6426b29d" />
 </plugin>
-<gap:plugin name="com.phonegap.plugins.facebookconnect" version="0.8.0">
-        <param name="APP_ID" value="1543180129162204" />
-        <param name="APP_NAME" value="cloudbric" />
-    </gap:plugin>
+
     
   <icon src="icon.png"/>
   <platform name="android">
