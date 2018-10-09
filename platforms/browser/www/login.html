@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="google-signin-client_id" content="727701252859-pst0ic7ck8afb27dar4iod6p9vitc72e.apps.googleusercontent.com">
+    
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
@@ -24,8 +24,7 @@
              <link rel="stylesheet" type="text/css" href="css/login.css" />
                    <link href="css/style.css" rel="stylesheet">
                     <script type="text/javascript" src="cordova.js"></script>
-                    <script type="text/javascript" src="js/phonegap.facebook.inappbrowser.js"></script>
-                    <script src="https://apis.google.com/js/platform.js" async defer></script>
+                    
                     <!-- include summernote css/js-->
 
     <title>Hello World</title>
@@ -57,7 +56,7 @@
         </form>
         <ul class="uk-list uk-text-muted list">
             <li><a href="#join_modal">Create Account</a></li>
-            <li>Forgot your password?</li>
+            <li><a href="#password_modal">Forgot your password?</a></li>
          <li class="sign-divider">or</li>
          <li class="sign-sns-item">
             <img src="img/facebook.png" onclick="login_fb();">
@@ -71,16 +70,62 @@
 
 
 
-</div><div id="fb-root"></div>
+</div>
 
           </div>
     
 </div>
 
+<div id="password_modal" class="modal">
+  <header class="bar bar-nav">
+    <a class="icon icon-left-nav pull-left" href="#password_modal"></a>
+    <h1 class="title">Reset your Account</h1>
+  </header>
+
+  <div class="uk-grid" style="overflow-y: scroll;" >
+    
+          <div id="login_contents" style="width:100%; height:100%;  padding-top:100px;" class="uk-width-1-1 uk-container-center uk-text-center">
+                      
+                                
+                                                      <div class="uk-container-center" >
+                                                          <img src="assets-mobile/img/main-auth.png" alt="Cloudbric auth logo">
+                                                      </div>
+                                                      <div class="login-screen-title uk-text-primary uk-text-bold uk-text-large" >Reset your password</div>
+<div class='uk-width-8-10 uk-container-center' style="margin-top:5%;">
+<p class="">Don't worry, it happens!
+
+Please enter your email address to
+
+request a password reset.
+</p>
+</div>
+<div class='uk-width-8-10 uk-container-center' style="margin-top:5%;">
+        <form class="input-group" style="border:0px;">
+          <ul class="table-view2">
+            <li class="table-view-cell">   <input type="email" placeholder="E-mail Address"  id="re_email" style="border:0px;"><span class="badge badge-negative badge-hide"  id="re_email_badge">!</span></li>
+            
+          </ul>
+
+            
+            <span class="uk-button uk-button-primary uk-width-1-1 "  onclick="reset_password()">Reset password</span>
+        
+        </form>
+       
+   
+
+
+
+
+</div>
+
+          </div>
+    
+</div>
+</div>
 
 <div id="join_modal" class="modal">
   <header class="bar bar-nav">
-    <a class="icon icon-close pull-right" href="#join_modal"></a>
+    <a class="icon icon-left-nav pull-left" href="#join_modal"></a>
     <h1 class="title">Create New Account</h1>
   </header>
 
@@ -138,6 +183,24 @@
 }
 </style>
 <script>
+  var new_password;
+var randomNum = {};
+//0~9까지의 난수
+randomNum.random = function(n1, n2) {
+    return parseInt(Math.random() * (n2 -n1 +1)) + n1;
+};
+
+randomNum.authNo= function(n) {
+    var value = "";
+    for(var i=0; i<n; i++){
+        value += randomNum.random(0,9);
+    }
+    return value;
+};
+
+ randomNum.printRandom =function(num) {
+    new_password = randomNum.authNo(num);
+    };
 
   $("#join_name").focusout(function(){
     name_check();
@@ -362,32 +425,64 @@ if(!regEmail.test(email)) {
     }
 });
    }
+    function reset_password() {
+    var email=$("#re_email").val().replace(/ /g, '');
+    if (email.length<1) {
+      alert_msg('error','Email address is invalid.');
+      return;
+    } else {
+      re_email_member_check();
+    }
+  }
 
-
-             function login_fb() {
-
-            FacebookInAppBrowser.settings.appId = '1405670032986370';
-            FacebookInAppBrowser.settings.redirectUrl = 'http://www.facebook.com/connect/login_success.html';
-            FacebookInAppBrowser.settings.permissions = 'email';
-
-            var loginSuccessCallback = function() {
-                        alert('Login successful');
-                        console.log(window.localStorage.getItem('accessToken'));
-                    },
-                    loginUnknowErrorCallback = function() {
-                        alert('Do you want to try again?');
-                    };
-
-            FacebookInAppBrowser.login(loginSuccessCallback, loginUnknowErrorCallback);
-        }
+  function re_email_member_check() {
+    var email=$("#re_email").val().replace(/ /g, '');
+      $.ajax({
+    url: "https://api-dev.cloudbric.com/v2/authority",
+    beforeSend: function(xhr) { 
+      xhr.setRequestHeader("X-Cloudbric-Key", "zzg0cockog4g0sk4kgcc44ow0go40sw88wkkg8ks"); 
+    },
+    type: 'POST',
+    dataType: 'json',
+    contentType: 'application/json',
+    processData: false,
+    data: '{"email": "'+email+'"}',
+    success: function (data) {
+      var data = JSON.stringify(data);
+      var data = JSON.parse(data);
+      var user_idx=data.result;
+      alert_msg("This is not a registered mail.","We've send a temporary password to "+email+" Please login and reset yout password");
      
-function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-}
+
+       $("#re_email_badge").addClass("badge-hide");
+      $("#re_email").removeClass("input_error");
+      $("#password_modal").removeClass("active");
+      randomNum.printRandom(5);
+      $.post("http://topnailart.co.kr/sendmail.php",
+   {
+    email:email,
+    new_password:new_password
+       },
+   function(data){
+    
+   });
+
+
+      
+    },
+    error: function(){
+      alert_msg("error","This is not a registered mail.");
+      $("#re_email_badge").removeClass("badge-hide");
+      $("#re_email").addClass("input_error");
+      return;
+      
+    }
+});
+   }
+
+
+
+            
 </script>
 <style>
 .focus_form {

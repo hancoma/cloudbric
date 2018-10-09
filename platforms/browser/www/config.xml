@@ -10,10 +10,6 @@
             <path url="/__/auth/callback" />
         </host>
     </universal-links>
-    <gap:plugin name="com.phonegap.plugins.facebookconnect" version="0.8.0">
-        <param name="APP_ID" value="1543180129162204" />
-        <param name="APP_NAME" value="cloudbric" />
-    </gap:plugin>
     <icon src="icon.png" />
     <access origin="*" />
     <access launch-external="true" origin="tel:*" />
