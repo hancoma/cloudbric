@@ -31,10 +31,6 @@
 </head>
 
 <body>
-<header class="bar bar-nav">
-
-  <h1 class="title">LOGIN</h1>
-</header>
 
  <div class="uk-grid" style="overflow-y: scroll;" >
     
@@ -44,7 +40,7 @@
                                                       <div class="uk-container-center" >
                                                           <img src="assets-mobile/img/main-auth.png" alt="Cloudbric auth logo">
                                                       </div>
-                                                      <div class="login-screen-title uk-text-primary uk-text-bold uk-text-large" >Welcome to Cloudbric!</div>
+                                                      <div class="login-screen-title uk-text-primary uk-text-bold uk-text-large" style="margin-top:25px;">Welcome to Cloudbric!</div>
 <div class='uk-width-7-10 uk-container-center' style="margin-top:5%;">
         <form class="input-group" style="border:0px;">
               <input type="email" placeholder="Email"  id="email">
@@ -124,14 +120,11 @@ request a password reset.
 </div>
 
 <div id="join_modal" class="modal">
-  <header class="bar bar-nav">
-    <a class="icon icon-left-nav pull-left" href="#join_modal"></a>
-    <h1 class="title">Create New Account</h1>
-  </header>
+ 
 
   <div class="uk-grid" style="overflow-y: scroll;" >
     
-          <div id="login_contents" style="width:100%; height:100%;  padding-top:100px;" class="uk-width-1-1 uk-container-center uk-text-center">
+          <div id="login_contents" style="width:100%; height:100%;  padding:30px; margin-top:10px; justify-content: center" class="uk-width-1-1 uk-container-center uk-text-center">
                       
                                 
                                                       <div class="uk-container-center" >
@@ -152,6 +145,7 @@ request a password reset.
             <button class="uk-button uk-button-primary uk-width-1-1 " type="button" onclick="join_submit()">SIGN UP</button>
         
         </form>
+        <label class="uk-text-left uk-width-1-1 uk-text-muted" style="float:left; margin-top:15px;" ><a href="#join_modal">back</a></label>
        
    
 
@@ -183,6 +177,7 @@ request a password reset.
 }
 </style>
 <script>
+  var error_code="00";
   var new_password;
 var randomNum = {};
 //0~9까지의 난수
@@ -203,7 +198,7 @@ randomNum.authNo= function(n) {
     };
 
   $("#join_name").focusout(function(){
-    name_check();
+   // name_check();
   });
   $("#join_name").focus(function(){
       $("#name_badge").addClass("badge-hide");
@@ -222,23 +217,23 @@ randomNum.authNo= function(n) {
 
   });
   $("#join_email").focusout(function(){
-    email_check();
-    email_member_check();
+   // email_check();
+   // email_member_check();
   })
   $("#join_password").focusout(function(){
-    password_check();
+   // password_check();
   })
    $("#join_re_password").focusout(function(){
-    password_re_check();
+   // password_re_check();
   })
 
    $("#email").focusout(function(){
-    login_email_check();
+   // login_email_check();
     
   })
 
      $("#password").focusout(function(){
-    login_password_check();
+    // login_password_check();
     
   })
 
@@ -253,7 +248,7 @@ if(!regEmail.test(email)) {
   
      $("#email_badge").removeClass("badge-hide");
       $("#join_email").addClass("input_error");
-        return;
+        exit;
 }
 
 
@@ -295,7 +290,7 @@ if(!regEmail.test(email)) {
       alert_msg('error','Please enter a password between 8 and 20 characters.');
       $("#password_badge").removeClass("badge-hide");
       $("#join_password").addClass("input_error");
-      return;
+      exit;
     }
   }
    function password_re_check() {
@@ -312,7 +307,7 @@ if(!regEmail.test(email)) {
        alert_msg('error','Password confirmation is different.');
        $("#password2_badge").removeClass("badge-hide");
       $("#join_re_password").addClass("input_error");
-      return;
+      exit;
     }
   }
   function name_check() {
@@ -322,7 +317,7 @@ if(!regEmail.test(email)) {
       alert_msg("error","Please enter at least 2 ~ 40 characters.");
       $("#name_badge").removeClass("badge-hide");
       $("#join_name").addClass("input_error");
-      return;
+      exit;
     }
 
   }
