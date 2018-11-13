@@ -15,7 +15,7 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
       <link href="css/ratchet.min.css" rel="stylesheet">
        <link href="css/ratchet-theme-ios.css" rel="stylesheet">
- <link rel="stylesheet" type="text/css" href="css/uikit.gradient.min.css">
+ <link rel="stylesheet" type="text/css" href="css/uikit.min.css">
 
 
           <script src="js/uikit.js"></script>
@@ -41,24 +41,24 @@
                                                           <img src="assets-mobile/img/main-auth.png" alt="Cloudbric auth logo">
                                                       </div>
                                                       <div class="login-screen-title uk-text-primary uk-text-bold uk-text-large" style="margin-top:25px;">Welcome to Cloudbric!</div>
-<div class='uk-width-7-10 uk-container-center' style="margin-top:5%;">
+<div class='uk-width-6-10 uk-container-center' style="margin-top:5%;">
         <form class="input-group" style="border:0px;">
-              <input type="email" placeholder="Email"  id="email">
-              <input type="password" placeholder="Password"  id="password">
+              <input type="email"   id="email" placeholder="E-mail Address">
+              <input type="password" placeholder="Password"  id="password" >
 
-            <label class="uk-text-left uk-width-1-1 uk-text-muted" style="float:left; margin:5px;" ><input type="checkbox">  Keep me signed in</label>
+            <label class="uk-text-left uk-width-1-1 uk-text-muted" style="float:left; margin:5px; font-size: 10px;" ><input type="checkbox">  Keep me signed in</label>
             <button class="uk-button uk-button-primary uk-width-1-1 " type="button" onclick="login_submit()">LOGIN</button>
         
         </form>
         <ul class="uk-list uk-text-muted list">
-            <li><a href="#join_modal">Create Account</a></li>
-            <li><a href="#password_modal">Forgot your password?</a></li>
-         <li class="sign-divider">or</li>
+            <li style="margin:5px;"><a href="#join_modal">Create Account</a></li>
+            <li style="margin:5px;"><a href="#password_modal">Forgot your password?</a></li>
+         <li class="sign-divider" style="margin:5px; display: list-item; position: relative;">or</li>
          <li class="sign-sns-item">
-            <img src="img/facebook.png" onclick="login_fb();">
+            <img src="img/facebook.png" onclick="login_fb();" class="uk-width-1-1">
         </li>
         <li class="sign-sns-item"><div class="g-signin2" data-onsuccess="onSignIn"></div>
-            <img src="img/google.png" onclick="">
+            <img src="img/google.png" onclick=""  class="uk-width-1-1">
         </li>
         </ul>
    
@@ -141,11 +141,11 @@ request a password reset.
             <li class="table-view-cell">   <input type="password" placeholder="Re-enter Password"  id="join_re_password"><span class="badge badge-negative badge-hide"  id="password2_badge">!</span></li>
           </ul>
 
-            <label class="uk-text-left uk-width-1-1 uk-text-muted" style="float:left; margin:5px;" ><p class="">By clicking Sign Up, you agree to our <a href="https://www.cloudbric.com/privacy-policy/" class="link external">Privacy Policy</a>, <a href="https://www.cloudbric.com/acceptable-use-policy/" class="link external">Acceptable Use Policy</a> and <a href="https://www.cloudbric.com/service-level-agreement-cloudbric/" class="link external">Service Level Agreement</a>.</p></label>
+            <label class="uk-text-left uk-width-1-1 uk-text-muted" style="float:left; margin:5px;" ><p class="">By clicking Sign Up, you agree to our <a href="https://www.cloudbric.com/privacy-policy/" class="link external" ><u>Privacy Policy</u></a>, <a href="https://www.cloudbric.com/acceptable-use-policy/" class="link external"><u>Acceptable Use Policy</u></a> and <a href="https://www.cloudbric.com/service-level-agreement-cloudbric/" class="link external"><u>Service Level Agreement</a>.</u></p></label>
             <button class="uk-button uk-button-primary uk-width-1-1 " type="button" onclick="join_submit()">SIGN UP</button>
         
         </form>
-        <label class="uk-text-left uk-width-1-1 uk-text-muted" style="float:left; margin-top:15px;" ><a href="#join_modal">back</a></label>
+        <label class="uk-text-left uk-width-1-1 uk-text-muted" style="float:left; margin-top:15px; " ><a href="#join_modal" style="color:#0f80ff">back</a></label>
        
    
 
@@ -161,6 +161,37 @@ request a password reset.
 
 
 <style>
+* {
+  font-size: 11px;
+}
+input {
+  font-size: 12px;
+}
+.uk-button {
+  border-radius: 3px;
+}
+.sign-divider::before {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 0;
+    width: calc(50% - 20px);
+    height: 1px;
+    content: '';
+    background-color: #AAA;
+    transform: translateY(-50%);
+}
+.sign-divider::after {
+    position: absolute;
+    display: block;
+    top: 50%;
+    right: 0;
+    width: calc(50% - 20px);
+    height: 1px;
+    content: '';
+    background-color: #AAA;
+    transform: translateY(-50%);
+}
 .sign-divider {
     font-size: 14px;
     color: #666;
@@ -174,6 +205,9 @@ request a password reset.
 }
 .input_error {
   color:#ff0000;
+}
+a {
+  color:#7f7f7f;
 }
 </style>
 <script>
