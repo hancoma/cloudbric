@@ -46,8 +46,8 @@
               <input type="email"   id="email" placeholder="E-mail Address">
               <input type="password" placeholder="Password"  id="password" >
 
-            <label class="uk-text-left uk-width-1-1 uk-text-muted" style="float:left; margin:5px; font-size: 10px;" ><input type="checkbox">  Keep me signed in</label>
-            <button class="uk-button uk-button-primary uk-width-1-1 " type="button" onclick="login_submit()">LOGIN</button>
+            <div class="uk-text-left uk-width-1-1 uk-text-muted" style="float:left; margin:5px; font-size: 10px; " ><input type="checkbox" id="c" style="float:left;"> <label style=" float: left; vertical-align: center; margin-left:5px;"> Keep me signed in</label></div>
+            <button class="uk-button uk-button-primary uk-width-1-1 " type="button" onclick="login_submit()">LOG IN</button>
         
         </form>
         <ul class="uk-list uk-text-muted list">
@@ -73,10 +73,7 @@
 </div>
 
 <div id="password_modal" class="modal">
-  <header class="bar bar-nav">
-    <a class="icon icon-left-nav pull-left" href="#password_modal"></a>
-    <h1 class="title">Reset your Account</h1>
-  </header>
+ 
 
   <div class="uk-grid" style="overflow-y: scroll;" >
     
@@ -86,31 +83,28 @@
                                                       <div class="uk-container-center" >
                                                           <img src="assets-mobile/img/main-auth.png" alt="Cloudbric auth logo">
                                                       </div>
-                                                      <div class="login-screen-title uk-text-primary uk-text-bold uk-text-large" >Reset your password</div>
-<div class='uk-width-8-10 uk-container-center' style="margin-top:5%;">
-<p class="">Don't worry, it happens!
-
+                                                      <div class="login-screen-title uk-text-primary uk-text-bold uk-text-large" style="margin-top:25px;" >Reset your password</div>
+<div class='uk-width-6-10 uk-container-center' style="margin-top:5%;">
+<p class="" style="font-size: 11px; float:left; ">Don't worry, it happens!
+<br>
 Please enter your email address to
 
 request a password reset.
 </p>
 </div>
-<div class='uk-width-8-10 uk-container-center' style="margin-top:5%;">
+<div class='uk-width-6-10 uk-container-center' style="margin-top:5%;">
         <form class="input-group" style="border:0px;">
-          <ul class="table-view2">
-            <li class="table-view-cell">   <input type="email" placeholder="E-mail Address"  id="re_email" style="border:0px;"><span class="badge badge-negative badge-hide"  id="re_email_badge">!</span></li>
-            
-          </ul>
+          <label>   <input type="email" placeholder="E-mail Address"  id="re_email" style="border:0px; width:105%; margin-left:-5%;"><span class="badge badge-negative badge-hide"  id="re_email_badge">!</span></label>
 
             
-            <span class="uk-button uk-button-primary uk-width-1-1 "  onclick="reset_password()">Reset password</span>
+            <span class="uk-button uk-button-primary uk-width-1-1  " style="margin-top:20px;"  onclick="reset_password()">Reset password</span>
         
         </form>
        
    
 
 
-
+ <label class="uk-text-left uk-width-1-1 uk-text-muted" style="float:left; margin-top:15px; padding-left:0px; margin-left:0px;" ><a href="#password_modal" style="color:#0f80ff">back</a></label>
 
 </div>
 
@@ -124,29 +118,29 @@ request a password reset.
 
   <div class="uk-grid" style="overflow-y: scroll;" >
     
-          <div id="login_contents" style="width:100%; height:100%;  padding:30px; margin-top:10px; justify-content: center" class="uk-width-1-1 uk-container-center uk-text-center">
+          <div id="login_contents" style="width:100%; height:100%;  padding:20px; margin-top:20px; justify-content: center" class="uk-width-1-1 uk-container-center uk-text-center">
                       
                                 
                                                       <div class="uk-container-center" >
                                                           <img src="assets-mobile/img/main-auth.png" alt="Cloudbric auth logo">
                                                       </div>
-                                                      <div class="login-screen-title uk-text-primary uk-text-bold uk-text-large" >Create New Account</div>
-<div class='uk-width-8-10 uk-container-center' style="margin-top:5%;">
-        <form class="input-group" style="border:0px;">
-          <ul class="table-view">
-  <li class="table-view-cell">
-              <input type="text" placeholder="name"  id="join_name"  ><span class="badge badge-negative badge-hide" id="name_badge">!</span></li>
-            <li class="table-view-cell">   <input type="email" placeholder="E-mail Address"  id="join_email"><span class="badge badge-negative badge-hide"  id="email_badge">!</span></li>
-            <li class="table-view-cell">   <input type="password" placeholder="Password"  id="join_password"><span class="badge badge-negative badge-hide"  id="password_badge">!</span></li>
-            <li class="table-view-cell">   <input type="password" placeholder="Re-enter Password"  id="join_re_password"><span class="badge badge-negative badge-hide"  id="password2_badge">!</span></li>
-          </ul>
-
-            <label class="uk-text-left uk-width-1-1 uk-text-muted" style="float:left; margin:5px;" ><p class="">By clicking Sign Up, you agree to our <a href="https://www.cloudbric.com/privacy-policy/" class="link external" ><u>Privacy Policy</u></a>, <a href="https://www.cloudbric.com/acceptable-use-policy/" class="link external"><u>Acceptable Use Policy</u></a> and <a href="https://www.cloudbric.com/service-level-agreement-cloudbric/" class="link external"><u>Service Level Agreement</a>.</u></p></label>
-            <button class="uk-button uk-button-primary uk-width-1-1 " type="button" onclick="join_submit()">SIGN UP</button>
-        
+                                                      <div class="login-screen-title uk-text-primary uk-text-bold uk-text-large" style="margin-top:25px;">Create New Account</div>
+<div class='uk-width-8-10 uk-container-center' style="margin-top:5%; ">
+        <form class="input-group uk-width-1-1" style="border:0px; width:100%;">
+          <ul style="border-color:#fff; list-style: none; width:100%; padding:0px;" >
+  <li class="table-view-cell " style="border:0px; width:100%;">
+              <input type="text" placeholder="name"  id="join_name" style="width:120%;" ><span class="badge badge-negative badge-hide" id="name_badge">!</span></li>
+            <li class="table-view-cell">   <input type="email" placeholder="E-mail Address"  id="join_email" style="width:120%;"><span class="badge badge-negative badge-hide"  id="email_badge">!</span></li>
+            <li class="table-view-cell">   <input type="password" placeholder="Password"  id="join_password" style="width:120%;"><span class="badge badge-negative badge-hide"  id="password_badge">!</span></li>
+            <li class="table-view-cell">   <input type="password" placeholder="Re-enter Password"  id="join_re_password" style="width:120%;"><span class="badge badge-negative badge-hide"  id="password2_badge">!</span></li>
+          
+            <li class="table-view-cell">
+            <label class="uk-text-left uk-width-1-1" style="float:left; margin:5px; width:120%; padding-left:9px; font-size: 11px;" ><p class="" style="font-size: 11px;">By clicking Sign Up, you agree to our <a href="https://www.cloudbric.com/privacy-policy/" class="link external" ><u>Privacy Policy</u></a>, <a href="https://www.cloudbric.com/acceptable-use-policy/" class="link external"><u>Acceptable Use Policy</u></a> and <a href="https://www.cloudbric.com/service-level-agreement-cloudbric/" class="link external"><u>Service Level Agreement</a>.</u></p></label>
+            <button class="uk-button uk-button-primary uk-width-1-1 " type="button" onclick="join_submit()" style="width:120%; padding-left:9px; margin-left:9px; margin-top:5px;">SIGN UP</button>
+          </li>
         </form>
-        <label class="uk-text-left uk-width-1-1 uk-text-muted" style="float:left; margin-top:15px; " ><a href="#join_modal" style="color:#0f80ff">back</a></label>
-       
+        <label class="uk-text-left uk-width-1-1 uk-text-muted" style="float:left; margin-top:15px; padding-left:9px; margin-left:20px;" ><a href="#join_modal" style="color:#0f80ff">back</a></label>
+       </ul>
    
 
 
@@ -164,6 +158,12 @@ request a password reset.
 * {
   font-size: 11px;
 }
+
+label[for="c"] {
+        position: relative;
+        top: -1.5px;
+      }
+
 input {
   font-size: 12px;
 }
@@ -209,6 +209,15 @@ input {
 a {
   color:#7f7f7f;
 }
+
+.table-view-cell {
+  border:0px;
+}
+.table-view {
+  border:0px;
+}
+
+
 </style>
 <script>
   var error_code="00";
