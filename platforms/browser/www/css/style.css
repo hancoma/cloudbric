@@ -3,3 +3,8 @@
     margin-bottom:4px;
     margin-top:5px;
 }
+/* 링크에서 밑줄 없애기 */
+a { text-decoration:none }
+
+/* 마우스 지나갈 때만 삭제 + 강제로 없애기 */
+a:hover { text-decoration:none !important }

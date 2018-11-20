@@ -32,8 +32,8 @@
 
 <body>
 <header class="bar bar-nav">
-    <a class="icon icon-left-nav pull-left" onclick="main_show();"></a>
- <a class="icon icon-gear pull-right"  onclick="setting_show();"></a>
+    <span class="icon icon-left-nav pull-left" onclick="main_show();"></span>
+ <span class="icon icon-gear pull-right"  onclick="setting_show();"></span>
 
   <h1 class="title">Dashboard</h1>
 </header>
@@ -120,23 +120,26 @@
     </div>
                 
 
-                <div id="site_attack_tab" style="display:none;">                
-                <div class="uk-grid" style="margin-top:5px;">
+                <div id="site_attack_tab" style="display:none;"> 
+
+                
+
+                <div class="uk-grid" style="margin-top:5px; border-top:1px #dedede solid; border-bottom:1px #dedede solid; padding-top:15px; padding-bottom: 15px; margin-bottom:30px;">
                     <div class="uk-width-1-2 uk-text-center">
                         
-                        <dl class="total-data-list">
-                                <dt class="">Total Traffic</dt>
-                                <dd>July</dd>
+                        <dl class="total-data-list" style="margin-bottom:5px;">
+                                <dt class=""  style="font-size: 13px;">Total Traffic</dt>
+                                <dd style="margin-top:0px; font-size: 10px;">July</dd>
                             </dl>
-                            <div class="total-data-traffic">0GB / 40GB</div>
+                            <div class="total-data-traffic"  style="font-size: 14px;">0GB / 40GB</div>
                         
                     </div>
                     <div class="uk-width-1-2 uk-text-center">
-                        <dl class="total-data-list">
-                                <dt>Total Visits</dt>
-                                <dd>July</dd>
+                        <dl class="total-data-list" style="margin-bottom:5px;">
+                                <dt style="font-size: 13px;">Total Visits</dt>
+                                <dd style="margin-top:0px; font-size: 10px;">July</dd>
                             </dl>
-                            <div class="total-data-attacks" id="total_attack"></div>
+                            <div class="total-data-attacks" id="total_attack"  style="font-size: 14px;"></div>
                     </div>
                 </div>
                
@@ -151,7 +154,8 @@
                 </div>
                 <div class="block-title">Top Ips</div>
                 <div class="block block-strong">
-                    <div id="chart-ips" class="c3" style="max-height: 320px; position: relative; min-height:320px;">
+                    <div id="chart-ips" class="c3" style="max-height: 320px; position: relative; min-height:320px; max-height: 320px; text-align: center; vertical-align: middle;">
+                      NO DATE
                         
                     </div>
                 </div>
@@ -174,7 +178,7 @@
 </div>
 <div id="alram_modal" class="modal">
   <header class="bar bar-nav">
-    <a class="icon icon-close pull-right" href="#alram_modal"></a>
+    
     <h1 class="title">Notifications</h1>
   </header>
 
@@ -470,7 +474,7 @@ var chartTraffic = c3.generate({
        },
    function(data){
 var ips_data = $.parseJSON(data);
-    
+    console.log(data);
  var chartIps = c3.generate({
                     bindto: '#chart-ips',
                     data: {
@@ -516,51 +520,6 @@ var ips_data = $.parseJSON(data);
 
 //top_ips
 
- $.post("http://topnailart.iwinv.net/site_top_ips.php",
-   {
-        domain_idx:domain_idx
-    
-       },
-   function(data){
-var ips_data = $.parseJSON(data);
-    
- var chartIps = c3.generate({
-                    bindto: '#chart-ips',
-                    data: {
-                        json: ips_data,
-                        keys: {
-                            x: 'ip',
-                            value: ['count']
-                        },
-                        type: 'bar',
-                        colors: {
-                            count: '#d62728'
-                        },
-                        empty: {
-                            label: {
-                                text: "No Data"
-                            }
-                        }
-                    },
-                    axis: {
-                        x: {
-                            type: 'category'
-                        },
-                        y: {
-                            tick: {
-                                format: function(d) {
-                                    return d.toFixed(0);
-                                },
-                                count: 5
-                            }
-                        },
-                        rotated: true,
-                    },
-                    bar: {
-                        width: 20
-                    }
-                });
-});
 
  // attack_url.php
  $.post("http://topnailart.iwinv.net/site_attack_url.php",
@@ -570,14 +529,29 @@ var ips_data = $.parseJSON(data);
        },
    function(data) {
    
-var url_data = $.parseJSON(data);
+   var chartUrls = c3.generate({
+   bindto: '#chart-urls',
+    data: {
+        // iris data from R
+        columns: [
+            
+            ['no date', 10],
+        ],
+        type : 'pie'
 
+    }
+});
+
+var url_data = $.parseJSON(data);
+    console.log("url"+data);
 
 var json = url_data;
 var pieJson = {};
 json.uri.forEach(function (uri, index) {
   pieJson[uri] = json.count[index];
 });
+
+
 
 
 var chartUrls = c3.generate({
@@ -617,7 +591,18 @@ var chartUrls = c3.generate({
     
        },
    function(data_purpose) {
- 
+ var chartUrls = c3.generate({
+   bindto: '#chart-purpose',
+    data: {
+        // iris data from R
+        columns: [
+            
+            ['no date', 10],
+        ],
+        type : 'pie'
+
+    }
+});
 var Purpose_data = $.parseJSON(data_purpose);
 
 
@@ -980,5 +965,8 @@ body {
 }
 a {
   color:#000;
+}
+.c3 {
+  width:96%;
 }
 </style>

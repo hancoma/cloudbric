@@ -51,7 +51,7 @@
         
         </form>
         <ul class="uk-list uk-text-muted list">
-            <li style="margin:5px;"><a href="#join_modal">Create Account</a></li>
+            <li style="margin:5px;"><a href="#" onclick="join_form_show()">Create Account</a></li>
             <li style="margin:5px;"><a href="#password_modal">Forgot your password?</a></li>
          <li class="sign-divider" style="margin:5px; display: list-item; position: relative;">or</li>
          <li class="sign-sns-item">
@@ -126,7 +126,7 @@ request a password reset.
                                                       </div>
                                                       <div class="login-screen-title uk-text-primary uk-text-bold uk-text-large" style="margin-top:25px;">Create New Account</div>
 <div class='uk-width-8-10 uk-container-center' style="margin-top:5%; ">
-        <form class="input-group uk-width-1-1" style="border:0px; width:100%;">
+        <form class="input-group uk-width-1-1" style="border:0px; width:100%;" name="join_form" id="join_form">
           <ul style="border-color:#fff; list-style: none; width:100%; padding:0px;" >
   <li class="table-view-cell " style="border:0px; width:100%;">
               <input type="text" placeholder="name"  id="join_name" style="width:120%;" ><span class="badge badge-negative badge-hide" id="name_badge">!</span></li>
@@ -427,7 +427,12 @@ if(!regEmail.test(email)) {
 });
    }
 
+   function join_form_show() {
 
+    $("#join_modal").addClass('active');
+    $("#join_form")[0].reset();
+
+   }
 
    function join_submit() {
         name_check();
