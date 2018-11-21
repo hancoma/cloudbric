@@ -72,8 +72,8 @@
 </ul>
 
 <div class="uk-grid">
-    <div style="height:30px; width:98%; margin-left:1%; margin-top:10px; margin-bottom:25px;">
-                        <span id="view_button" class="button button-round button-outline button-active tab-link" style="font-size:10px; width:50%; float:left; border-radius: 36px 0 0 36px;" onclick="view_visit()">Visits</span>
+    <div style="height:30px; width:94%; margin-left:3%;  margin-right:3%;  margin-top:10px; margin-bottom:25px;">
+                        <span id="view_button" class="button button-round button-outline button-active tab-link" style="font-size:10px; width:50%; float:left; border-radius: 36px 0 0 36px; " onclick="view_visit()">Visits</span>
                         <span id="attack_button" class="button button-round button-outline color-red tab-link"  style="font-size:10px;  width:50%; float:left; border-radius: 0 36px 36px 0;" onclick="view_attack()">Attacks</span>
                     </div>
                 </div>
@@ -148,25 +148,26 @@
                 
                <div class="block-title">Total Attacks</div>
                 <div class="block block-strong">
-                    <div id="chart-attacks" class="c3" style="max-height: 320px; position: relative; min-height:320px;">
-
-                </div>
+                    
+                <div id="chart-attacks" class="c3" style="max-height: 320px; position: relative; min-height:320px;">
+                      
+                    </div>
                 </div>
                 <div class="block-title">Top Ips</div>
                 <div class="block block-strong">
-                    <div id="chart-ips" class="c3" style="max-height: 320px; position: relative; min-height:320px; max-height: 320px; text-align: center; vertical-align: middle;">
+                    <div id="chart-ips" class="c3" style="max-height: 330px; position: relative; min-height:320px; max-height: 330px; text-align: center; vertical-align: middle;">
                       NO DATE
                         
                     </div>
                 </div>
                 <div class="block-title">Attack Purpose</div>
                 <div class="block block-strong">
-                    <div id="chart-purpose" class="c3" style="max-height: 320px; position: relative; min-height:320px;">
+                    <div id="chart-purpose" class="c3" style="max-height: 330px; position: relative; min-height:330px;">
                     </div>
                 </div>
                 <div class="block-title">Attack URLs</div>
                 <div class="block block-strong">
-                    <div id="chart-urls" class="c3" style="max-height: 320px; position: relative; min-height:320px;">
+                    <div id="chart-urls" class="c3" style="max-height: 330px; position: relative; min-height:320px;">
                         
                     </div>
                 </div>
@@ -529,21 +530,10 @@ var ips_data = $.parseJSON(data);
        },
    function(data) {
    
-   var chartUrls = c3.generate({
-   bindto: '#chart-urls',
-    data: {
-        // iris data from R
-        columns: [
-            
-            ['no date', 10],
-        ],
-        type : 'pie'
-
-    }
-});
+ 
 
 var url_data = $.parseJSON(data);
-    console.log("url"+data);
+    console.log("url"+url_data);
 
 var json = url_data;
 var pieJson = {};
@@ -642,7 +632,7 @@ json.purpose.forEach(function (purpose, index) {
 
 });
 function view_attack() {
-    $("#site_visit_tab").hide();
+    $("#site_visit_tab").show();
     $("#site_attack_tab").show();
     
 
