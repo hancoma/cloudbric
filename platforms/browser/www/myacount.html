@@ -415,15 +415,10 @@ if(!regEmail.test(email)) {
     processData: false,
     data: '{"email": "'+email+'", "password": "'+password+'"}',
     success: function (data) {
-
       var data = JSON.stringify(data);
-         console.log(data);
-      var member_data = JSON.parse(data);
-
-      var user_idx=member_data.user_idx;
-      window.localStorage.setItem("user_idx", user_idx);
+      var data = JSON.parse(data);
+      var user_idx=data.result;
    //   alert_msg("MSG","You are logged in. Thank you.");
-   console.log(user_idx);
        location.replace('main.html') ;
     },
     error: function(){
