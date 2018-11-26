@@ -1,10 +1,13 @@
 var user_id = window.localStorage.getItem("user_id");
 var member_srl = window.localStorage.getItem("member_srl");
 var language = window.localStorage.getItem("language");
+var user_idx = window.localStorage.getItem("user_idx");
+
 var uuid=device.uuid;
 var room_no=0;
 var menu;
 var mode;
+console.log(user_idx+":sitelist");
 function main_show() {
   if (mode=="alarm") {
      $("#alarm_list").hide();
@@ -128,7 +131,7 @@ function site_list() {
     $("#site_list").html('');
    $.post("http://topnailart.iwinv.net/sitelist_new.php",
    {
-    
+    user_idx:user_idx
        },
    function(data){
      $("#site_list").html(data);

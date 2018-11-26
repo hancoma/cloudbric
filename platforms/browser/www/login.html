@@ -419,8 +419,8 @@ if(!regEmail.test(email)) {
       var data = JSON.stringify(data);
          console.log(data);
       var member_data = JSON.parse(data);
-
-      var user_idx=member_data.user_idx;
+console.log("user_idx : "+member_data.result_info.user_idx);
+      var user_idx=member_data.result_info.user_idx;
       window.localStorage.setItem("user_idx", user_idx);
    //   alert_msg("MSG","You are logged in. Thank you.");
    console.log(user_idx);
