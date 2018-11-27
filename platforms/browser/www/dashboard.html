@@ -31,11 +31,12 @@
 </head>
 
 <body>
-<header class="bar bar-nav">
+<header class="bar bar-nav amo_header">
     <span class="icon icon-left-nav pull-left" onclick="main_show();"></span>
- <span class="icon icon-gear pull-right"  onclick="setting_show();"></span>
+ 
 
   <h1 class="title">Dashboard</h1>
+  <span class="icon icon-gear pull-right"  onclick="setting_show();"></span>
 </header>
 <div id="alarm_list" class="page-content" style="overflow-y: scroll; width:100%; height:100%;  padding-bottom: 100px; padding-top:50px; display:none;">
 
@@ -45,7 +46,7 @@
 
 
 <div id="tab-visits" class="dashboard-page-content tab tab-active" >
-                <div class="block-title">Network Status</div>
+                <div class="block-title">Network Status</div> 
                 <div class="block">
                     <div class="network-status-wrap" style="margin-top:20px; margin-bottom:30px;">
                         <ul class="network-status-list">
@@ -73,8 +74,8 @@
 
 <div class="uk-grid">
     <div style="height:30px; width:94%; margin-left:3%;  margin-right:3%;  margin-top:10px; margin-bottom:25px;">
-                        <span id="view_button" class="button button-round button-outline button-active tab-link" style="font-size:10px; width:50%; float:left; border-radius: 36px 0 0 36px; " onclick="view_visit()">Visits</span>
-                        <span id="attack_button" class="button button-round button-outline color-red tab-link"  style="font-size:10px;  width:50%; float:left; border-radius: 0 36px 36px 0;" onclick="view_attack()">Attacks</span>
+                        <span id="view_button" class="button button-round button-outline button-active tab-link" style="font-size:10px; width:50%; float:left; border-radius: 36px 0 0 36px; line-height: 44px; " onclick="view_visit()">Visits</span>
+                        <span id="attack_button" class="button button-round button-outline color-red tab-link"  style="font-size:10px;  width:50%; float:left; border-radius: 0 36px 36px 0; line-height: 44px;" onclick="view_attack()">Attacks</span>
                     </div>
                 </div>
 
@@ -185,7 +186,7 @@
 
 </div>
 <div id="alram_modal" class="modal"  style="background-color: #fff;">
-  <header class="bar bar-nav">
+  <header class="bar bar-nav amo_header">
     
     <h1 class="title">Notifications</h1>
   </header>

@@ -8,3 +8,28 @@ a { text-decoration:none }
 
 /* 마우스 지나갈 때만 삭제 + 강제로 없애기 */
 a:hover { text-decoration:none !important }
+
+.table-view-cell {
+  line-height: 44px;
+}
+.title {
+	line-height: 44px; display: table-cell;
+	  display: flex;
+    justify-content: center;
+    align-items: center;
+
+    display: flex;
+    
+}
+.block-title {
+    color: rgba(0,0,0,.54);
+    margin: 5px 16px 5px;
+    
+}
+.amo_header {
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
