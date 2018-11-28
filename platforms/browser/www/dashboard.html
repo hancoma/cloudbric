@@ -262,7 +262,7 @@
     <span class="icon gnb-icon wallet-icon" ></span>
   </a>
  
-<a class="tab-item active" id="chart_icon" href="#" onclick="chat_show()">
+<a class="tab-item active" id="chart_icon" href="#" onclick="myacount_show()">
     <span class="icon gnb-icon myaccount-icon" ></span>
   </a>
  
@@ -639,6 +639,38 @@ json.purpose.forEach(function (purpose, index) {
 
 
 });
+serve_info();
+   function serve_info() {
+
+    console.log("serve_info "+domain_idx);
+    $.ajax({
+    url: "https://api-dev.cloudbric.com/v2/websites/network/"+domain_idx,
+    beforeSend: function(xhr) { 
+      xhr.setRequestHeader("X-Cloudbric-Key", "zzg0cockog4g0sk4kgcc44ow0go40sw88wkkg8ks"); 
+    },
+    type: 'GET',
+    dataType: 'json',
+    contentType: 'application/json',
+    processData: false,
+   
+    success: function (data) {
+      var data = JSON.stringify(data);
+      var data = JSON.parse(data);
+      var cloudbric_network=data.result_info.cloudbric_network;
+      var webserver_network=data.result_info.webserver_network;
+      console.log("cloudbric_network : "+cloudbric_network);
+      console.log("webserver_network : "+webserver_network);
+      $("#network-cloudbric").data("status",cloudbric_network);
+      $("#network-server").data("status",webserver_network);
+    },
+    error: function(){
+      
+    }
+});
+
+    
+   }
+
 function view_attack() {
     $("#site_visit_tab").hide();
     $("#site_attack_tab").show();
@@ -686,6 +718,20 @@ function setting_show() {
     margin: 32px 16px 16px;
     line-height: 16px;
     font-weight: 500;
+}
+.network-stauts-item[data-status="on"]::before {
+    background: url("img/dashboard/sign-check.png") no-repeat center center;
+    background-size: contain;
+}
+.network-stauts-item[data-status="off"]::before {
+    background: url("img/dashboard/sign-error") no-repeat center center;
+    background-size: contain;
+}
+.network-stauts-item {
+    position: relative;
+    flex: 1;
+    height: 100px;
+    margin: 0 20px;
 }
 .block-title {
     position: relative;

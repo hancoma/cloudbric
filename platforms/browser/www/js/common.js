@@ -58,6 +58,9 @@ function my_info() {
     
    }
 
+ 
+
+
 function open_url(url) {
   var url=url
   var ref = cordova.InAppBrowser.open(url, '_self', 'location=no');
