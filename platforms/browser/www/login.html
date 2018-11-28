@@ -421,13 +421,17 @@ if(!regEmail.test(email)) {
       var member_data = JSON.parse(data);
 console.log("user_idx : "+member_data.result_info.user_idx);
       var user_idx=member_data.result_info.user_idx;
+      var email=member_data.result_info.email;
+     
       window.localStorage.setItem("user_idx", user_idx);
+    
+     
    //   alert_msg("MSG","You are logged in. Thank you.");
    console.log(user_idx);
        location.replace('main.html') ;
     },
     error: function(){
-      alert_msg("error","Error logging in.");
+      alert_msg("error","Invalid email address or password! Please try again");
     }
 });
    }

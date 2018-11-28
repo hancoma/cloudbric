@@ -3,6 +3,8 @@ var member_srl = window.localStorage.getItem("member_srl");
 var language = window.localStorage.getItem("language");
 var user_idx = window.localStorage.getItem("user_idx");
 
+
+
 var uuid=device.uuid;
 var room_no=0;
 var menu;
@@ -22,8 +24,39 @@ function main_show() {
 }
 
 
+function myacount_show() {
+  console.log(user_idx+":myacount");
+  location.replace('myacount.html') ; 
+}
 
+function my_info() {
+    console.log("myacount"+user_idx);
+    $.ajax({
+    url: "https://api-dev.cloudbric.com/v2/users/"+user_idx,
+    beforeSend: function(xhr) { 
+      xhr.setRequestHeader("X-Cloudbric-Key", "zzg0cockog4g0sk4kgcc44ow0go40sw88wkkg8ks"); 
+    },
+    type: 'GET',
+    dataType: 'json',
+    contentType: 'application/json',
+    processData: false,
+   
+    success: function (data) {
+      var data = JSON.stringify(data);
+      var data = JSON.parse(data);
+      var user_email=data.result_info.email;
+      var user_name=data.result_info.name;
+      console.log("email : "+user_email);
+      $("#email").html(user_email);
+      $("#name").html(user_name);
+    },
+    error: function(){
+      
+    }
+});
 
+    
+   }
 
 function open_url(url) {
   var url=url

@@ -31,7 +31,11 @@
 </head>
 
 <body>
+<header class="bar bar-nav amo_header">
 
+
+  <h1 class="title" >My Acount</h1>
+</header>
  <div class="uk-grid" style="overflow-y: scroll;" >
     
           <div id="login_contents" style="width:100%; height:100%;  padding-top:100px;" class="uk-width-1-1 uk-container-center uk-text-center">
@@ -40,29 +44,20 @@
                                                       <div class="uk-container-center" >
                                                           <img src="assets-mobile/img/main-auth.png" alt="Cloudbric auth logo">
                                                       </div>
-                                                      <div class="login-screen-title uk-text-primary uk-text-bold uk-text-large" style="margin-top:25px;">Welcome to Cloudbric!</div>
-<div class='uk-width-6-10 uk-container-center' style="margin-top:5%;">
-        <form class="input-group" style="border:0px;">
-              <input type="email"   id="email" placeholder="E-mail Address" style="width:105%; margin-left:-20px;">
-              <input type="password" placeholder="Password"  id="password" style="width:105%; margin-left:-20px;">
-
-            <div class="uk-text-left uk-width-1-1 uk-text-muted" style="float:left; margin:5px; font-size: 10px; " ><input type="checkbox" id="c" style="float:left;"> <label style=" float: left; vertical-align: center; margin-left:5px;"> Keep me signed in</label></div>
-            <button class="uk-button uk-button-primary uk-width-1-1 " type="button" onclick="login_submit()">LOG IN</button>
-        
-        </form>
-        <ul class="uk-list uk-text-muted list">
-            <li style="margin:5px;"><a href="#" onclick="join_form_show()">Create Account</a></li>
-            <li style="margin:5px;"><a href="#password_modal">Forgot your password?</a></li>
-         <li class="sign-divider" style="margin:5px; display: list-item; position: relative;">or</li>
-         <li class="sign-sns-item">
-            <img src="img/facebook.png" onclick="login_fb();" class="uk-width-1-1">
-        </li>
-        <li class="sign-sns-item"><div class="g-signin2" data-onsuccess="onSignIn"></div>
-            <img src="img/google.png" onclick=""  class="uk-width-1-1">
-        </li>
-        </ul>
+                                                      <div class="login-screen-title uk-text-primary uk-text-bold uk-text-large" style="margin-top:25px;" id="email">My Acount</div>
+<div class='uk-width-1-1 ' style="margin-top:5%;">
+        <ul class="table-view">
    
+ <li class="table-view-cell uk-text-left">
+    
+      <span id="name" >
+      Item 3 
+    </span><i class="media-object pull-right icon icon-edit"></i>
+     
+    
+  </li>
 
+</ul>
 
 
 
@@ -72,87 +67,33 @@
     
 </div>
 
-<div id="password_modal" class="modal">
+
+
+<div class="bar bar-standard bar-footer-secondary" STYLE="margin-bottom:10px; text-align:center; line-height:40px;">
+  <button class="uk-button uk-width-1-1"  onclick="logout()">LOGOUT</button>
+</div>
+<nav class="bar bar-tab bar-footer">
+  
+ 
+  <a class="tab-item active" id="chart_icon" href="#" onclick="main_show()">
+    <span class="icon gnb-icon dashboard-icon" ></span>
+  </a>
+ 
+  <a class="tab-item active" id="chart_icon" href="#" onclick="alram_modal_show()">
+    <span class="icon gnb-icon alarm-icon" ></span>
+  </a>
+
+<a class="tab-item active" id="chart_icon" href="#" onclick="chat_show()">
+    <span class="icon gnb-icon wallet-icon" ></span>
+  </a>
+ 
+<a class="tab-item active" id="chart_icon" href="#" onclick="myacount_show()">
+    <span class="icon gnb-icon myaccount-icon" ></span>
+  </a>
  
 
-  <div class="uk-grid" style="overflow-y: scroll;" >
-    
-          <div id="login_contents" style="width:100%; height:100%;  padding-top:100px;" class="uk-width-1-1 uk-container-center uk-text-center">
-                      
-                                
-                                                      <div class="uk-container-center" >
-                                                          <img src="assets-mobile/img/main-auth.png" alt="Cloudbric auth logo">
-                                                      </div>
-                                                      <div class="login-screen-title uk-text-primary uk-text-bold uk-text-large" style="margin-top:25px;" >Reset your password</div>
-<div class='uk-width-6-10 uk-container-center' style="margin-top:5%;">
-<p class="" style="font-size: 11px; float:left; ">Don't worry, it happens!
-<br>
-Please enter your email address to
-
-request a password reset.
-</p>
-</div>
-<div class='uk-width-6-10 uk-container-center' style="margin-top:5%;">
-        <form class="input-group" style="border:0px;">
-          <label>   <input type="email" placeholder="E-mail Address"  id="re_email" style="border:0px; width:105%; margin-left:-5%;"><span class="badge badge-negative badge-hide"  id="re_email_badge">!</span></label>
-
-            
-            <span class="uk-button uk-button-primary uk-width-1-1  " style="margin-top:20px;"  onclick="reset_password()">Reset password</span>
-        
-        </form>
-       
-   
-
-
- <label class="uk-text-left uk-width-1-1 uk-text-muted" style="float:left; margin-top:15px; padding-left:0px; margin-left:0px;" ><a href="#password_modal" style="color:#0f80ff">back</a></label>
-
-</div>
-
-          </div>
-    
-</div>
-</div>
-
-<div id="join_modal" class="modal">
- 
-
-  <div class="uk-grid" style="overflow-y: scroll;" >
-    
-          <div id="login_contents" style="width:100%; height:100%;  padding:20px; margin-top:20px; justify-content: center" class="uk-width-1-1 uk-container-center uk-text-center">
-                      
-                                
-                                                      <div class="uk-container-center" >
-                                                          <img src="assets-mobile/img/main-auth.png" alt="Cloudbric auth logo">
-                                                      </div>
-                                                      <div class="login-screen-title uk-text-primary uk-text-bold uk-text-large" style="margin-top:25px;">Create New Account</div>
-<div class='uk-width-8-10 uk-container-center' style="margin-top:5%; ">
-        <form class="input-group uk-width-1-1" style="border:0px; width:100%;" name="join_form" id="join_form">
-          <ul style="border-color:#fff; list-style: none; width:100%; padding:0px;" >
-  <li class="table-view-cell " style="border:0px; width:100%;">
-              <input type="text" placeholder="name"  id="join_name" style="width:120%;" ><span class="badge badge-negative badge-hide" id="name_badge">!</span></li>
-            <li class="table-view-cell">   <input type="email" placeholder="E-mail Address"  id="join_email" style="width:120%;"><span class="badge badge-negative badge-hide"  id="email_badge">!</span></li>
-            <li class="table-view-cell">   <input type="password" placeholder="Password"  id="join_password" style="width:120%;"><span class="badge badge-negative badge-hide"  id="password_badge">!</span></li>
-            <li class="table-view-cell">   <input type="password" placeholder="Re-enter Password"  id="join_re_password" style="width:120%;"><span class="badge badge-negative badge-hide"  id="password2_badge">!</span></li>
-          
-            <li class="table-view-cell">
-            <label class="uk-text-left uk-width-1-1" style="float:left; margin:5px; width:120%; padding-left:9px; font-size: 11px;" ><p class="" style="font-size: 11px;">By clicking Sign Up, you agree to our <a href="https://www.cloudbric.com/privacy-policy/" class="link external" ><u>Privacy Policy</u></a>, <a href="https://www.cloudbric.com/acceptable-use-policy/" class="link external"><u>Acceptable Use Policy</u></a> and <a href="https://www.cloudbric.com/service-level-agreement-cloudbric/" class="link external"><u>Service Level Agreement</a>.</u></p></label>
-            <button class="uk-button uk-button-primary uk-width-1-1 " type="button" onclick="join_submit()" style="width:120%; padding-left:9px; margin-left:9px; margin-top:5px;">SIGN UP</button>
-          </li>
-        </form>
-        <label class="uk-text-left uk-width-1-1 uk-text-muted" style="float:left; margin-top:15px; padding-left:9px; margin-left:20px;" ><a href="#join_modal" style="color:#0f80ff">back</a></label>
-       </ul>
-   
-
-
-
-
-</div>
-
-          </div>
-    
-</div>
-</div>
-
+  
+</nav>
 
 <style>
 * {
@@ -220,310 +161,14 @@ a {
 
 </style>
 <script>
-  var error_code="00";
-  var new_password;
-var randomNum = {};
-//0~9까지의 난수
-randomNum.random = function(n1, n2) {
-    return parseInt(Math.random() * (n2 -n1 +1)) + n1;
-};
 
-randomNum.authNo= function(n) {
-    var value = "";
-    for(var i=0; i<n; i++){
-        value += randomNum.random(0,9);
-    }
-    return value;
-};
 
- randomNum.printRandom =function(num) {
-    new_password = randomNum.authNo(num);
-    };
-
-  $("#join_name").focusout(function(){
-   // name_check();
-  });
-  $("#join_name").focus(function(){
-      $("#name_badge").addClass("badge-hide");
-      $("#join_name").removeClass("input_error");
-      return;
-
-  });
-  $("#join_name").focus(function(){
-      $("#password_badge").addClass("badge-hide");
-      $("#join_password").removeClass("input_error");
-
-  });
-  $("#join_email").focus(function(){
-      $("#email_badge").addClass("badge-hide");
-      $("#join_email").removeClass("input_error");
-
-  });
-  $("#join_email").focusout(function(){
-   // email_check();
-   // email_member_check();
-  })
-  $("#join_password").focusout(function(){
-   // password_check();
-  })
-   $("#join_re_password").focusout(function(){
-   // password_re_check();
-  })
-
-   $("#email").focusout(function(){
-   // login_email_check();
-    
-  })
-
-     $("#password").focusout(function(){
-    // login_password_check();
-    
-  })
+//my_info();
 
   
-  function email_check() {
-    var email=$("#join_email").val().replace(/ /g, '');
-    regEmail = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-  
-  
-if(!regEmail.test(email)) {
-    alert_msg('error','Email address is invalid.');
-  
-     $("#email_badge").removeClass("badge-hide");
-      $("#join_email").addClass("input_error");
-        exit;
-}
-
-
-
-  }
-  function email_member_check() {
-    var email=$("#join_email").val().replace(/ /g, '');
-      $.ajax({
-    url: "https://api-dev.cloudbric.com/v2/authority",
-    beforeSend: function(xhr) { 
-      xhr.setRequestHeader("X-Cloudbric-Key", "zzg0cockog4g0sk4kgcc44ow0go40sw88wkkg8ks"); 
-    },
-    type: 'POST',
-    dataType: 'json',
-    contentType: 'application/json',
-    processData: false,
-    data: '{"email": "'+email+'"}',
-    success: function (data) {
-      var data = JSON.stringify(data);
-      var data = JSON.parse(data);
-      var user_idx=data.result;
-      alert_msg("error","This is a registered mail.");
-      $("#email_badge").removeClass("badge-hide");
-      $("#join_email").addClass("input_error");
-      return; 
-    },
-    error: function(){
-      
-    }
-});
-   }
 
 
   
-  function password_check() {
-    var password=$("#join_password").val().replace(/ /g, '');
-    var password_length=password.length;
-    if (password_length<8 != password_length>20 ) {
-      alert_msg('error','Please enter a password between 8 and 20 characters.');
-      $("#password_badge").removeClass("badge-hide");
-      $("#join_password").addClass("input_error");
-      exit;
-    }
-  }
-   function password_re_check() {
-    var password=$("#join_password").val().replace(/ /g, '');
-    var re_password=$("#join_re_password").val().replace(/ /g, '');
-    var password_length=password.length;
-    if (password_length<8 != password_length>20 ) {
-      alert_msg('error','Please enter a password between 8 and 20 characters.');
-      $("#password_badge").removeClass("badge-hide");
-      $("#join_password").addClass("input_error");
-      return;
-    }
-    if (password != re_password){
-       alert_msg('error','Password confirmation is different.');
-       $("#password2_badge").removeClass("badge-hide");
-      $("#join_re_password").addClass("input_error");
-      exit;
-    }
-  }
-  function name_check() {
-    var name=$("#join_name").val().replace(/ /g, '');
-    var name_length=name.length;
-    if (name_length<2 != name_length>40) {
-      alert_msg("error","Please enter at least 2 ~ 40 characters.");
-      $("#name_badge").removeClass("badge-hide");
-      $("#join_name").addClass("input_error");
-      exit;
-    }
-
-  }
-
-    function login_email_check() {
-    var email=$("#email").val().replace(/ /g, '');
-    regEmail = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-  
-  
-if(!regEmail.test(email)) {
-    alert_msg('error','Email address is invalid.');
-
-        return;
-}
-
-  }
-
-    function login_password_check() {
-    var password=$("#password").val().replace(/ /g, '');
-    var password_length=password.length;
-    if (password_length<8 != password_length>20 ) {
-      alert_msg('error','Please enter a password between 8 and 20 characters.');
-      
-      return;
-    }
-  }
-
-
-
-    function login_submit() {
-
-    var email=$("#email").val().replace(/ /g, '');
-    var password=$("#password").val().replace(/ /g, '');
-
-    if (email.length<1) {
-      alert_msg('error','Email address is invalid.');
-      return;
-    }
-    if (password.length<1) {
-       alert_msg('error','Please enter a password between 8 and 20 characters.');
-      return;
-    }
-
-    $.ajax({
-    url: "https://api-dev.cloudbric.com/v2/authority/password_check",
-    beforeSend: function(xhr) { 
-      xhr.setRequestHeader("X-Cloudbric-Key", "zzg0cockog4g0sk4kgcc44ow0go40sw88wkkg8ks"); 
-    },
-    type: 'POST',
-    dataType: 'json',
-    contentType: 'application/json',
-    processData: false,
-    data: '{"email": "'+email+'", "password": "'+password+'"}',
-    success: function (data) {
-      var data = JSON.stringify(data);
-      var data = JSON.parse(data);
-      var user_idx=data.result;
-   //   alert_msg("MSG","You are logged in. Thank you.");
-       location.replace('main.html') ;
-    },
-    error: function(){
-      alert_msg("error","Error logging in.");
-    }
-});
-   }
-
-   function join_form_show() {
-
-    $("#join_modal").addClass('active');
-    $("#join_form")[0].reset();
-
-   }
-
-   function join_submit() {
-        name_check();
-        email_check();
-        password_check();
-        password_re_check();
-    var name=$("#join_name").val().replace(/ /g, '');
-    var email=$("#join_email").val().replace(/ /g, '');
-    var password=$("#join_password").val().replace(/ /g, '');
-        var re_password=$("#join_re_password").val().replace(/ /g, '');
-
-
-
-    $.ajax({
-    url: "https://api-dev.cloudbric.com/v2/users",
-    beforeSend: function(xhr) { 
-      xhr.setRequestHeader("X-Cloudbric-Key", "zzg0cockog4g0sk4kgcc44ow0go40sw88wkkg8ks"); 
-    },
-    type: 'POST',
-    dataType: 'json',
-    contentType: 'application/json',
-    processData: false,
-    data: '{"name": "'+name+'", "email": "'+email+'", "password": "'+password+'"}',
-    success: function (data) {
-      var data = JSON.stringify(data);
-      var data = JSON.parse(data);
-      var user_idx=data.result;
-     
-       $("#join_modal").removeClass('active');
-    },
-    error: function(){
-      alert_msg("Error","You are not a member. Please join me again.");
-    }
-});
-   }
-    function reset_password() {
-    var email=$("#re_email").val().replace(/ /g, '');
-    if (email.length<1) {
-      alert_msg('error','Email address is invalid.');
-      return;
-    } else {
-      re_email_member_check();
-    }
-  }
-
-  function re_email_member_check() {
-    var email=$("#re_email").val().replace(/ /g, '');
-      $.ajax({
-    url: "https://api-dev.cloudbric.com/v2/authority",
-    beforeSend: function(xhr) { 
-      xhr.setRequestHeader("X-Cloudbric-Key", "zzg0cockog4g0sk4kgcc44ow0go40sw88wkkg8ks"); 
-    },
-    type: 'POST',
-    dataType: 'json',
-    contentType: 'application/json',
-    processData: false,
-    data: '{"email": "'+email+'"}',
-    success: function (data) {
-      var data = JSON.stringify(data);
-      var data = JSON.parse(data);
-      var user_idx=data.result;
-      alert_msg("This is not a registered mail.","We've send a temporary password to "+email+" Please login and reset yout password");
-     
-
-       $("#re_email_badge").addClass("badge-hide");
-      $("#re_email").removeClass("input_error");
-      $("#password_modal").removeClass("active");
-      randomNum.printRandom(5);
-      $.post("http://topnailart.co.kr/sendmail.php",
-   {
-    email:email,
-    new_password:new_password
-       },
-   function(data){
-    
-   });
-
-
-      
-    },
-    error: function(){
-      alert_msg("error","This is not a registered mail.");
-      $("#re_email_badge").removeClass("badge-hide");
-      $("#re_email").addClass("input_error");
-      return;
-      
-    }
-});
-   }
-
-
 
             
 </script>
@@ -561,6 +206,9 @@ if(!regEmail.test(email)) {
 
     </script>
      <script type="text/javascript" src="js/common.js"></script>
+     <script type="text/javascript">
+        my_info();
+     </script>
      
 
 
