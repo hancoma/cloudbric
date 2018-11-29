@@ -10,7 +10,17 @@ a { text-decoration:none }
 a:hover { text-decoration:none !important }
 
 .table-view-cell {
-  line-height: 44px;
+ display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 28px;
+    width:100%;
+        padding: 11px 0px 11px 15px;
+}
+
+.navigate-right:after, .push-right:after {
+    right: 5px;
+   
 }
 .title {
 	line-height: 44px; display: table-cell;

@@ -49,21 +49,21 @@
 <div id="tab-visits" class="dashboard-page-content tab tab-active" >
                 <div class="block-title">Network Status</div> 
                 <div class="block">
-                    <div class="network-status-wrap" style="margin-top:20px; margin-bottom:30px;">
+                    <div class="network-status-wrap" style="margin-top:20px; margin-bottom:45px;">
                         <ul class="network-status-list">
                             <li class="network-stauts-item network-client"></li>
-                            <li class="network-stauts-item network-cloudbric" data-status="off"></li>
-                            <li class="network-stauts-item network-server" data-status="on"></li>
+                            <li class="network-stauts-item network-cloudbric" id="icon1" data-status="off"></li>
+                            <li class="network-stauts-item network-server" id="icon2" data-status="on"></li>
                         </ul>
                     </div>
                 </div>
-                <ul class="table-view">
+                <ul class="table-view" >
 
   <li class="table-view-cell media">
     
-      <span class="item-media" style="float:left; margin-top:-5px;" id="status_image"><img src="assets-mobile/img/protected.png" alt="protected"></span>
+      <span class="item-media" style="float:left; margin-top:-7px;" id="status_image"><img src="assets-mobile/img/protected.png" alt="protected"></span>
 
-      <div class="media-body domain-status" style="padding-top:5px; width:auto;">
+      <div class="media-body domain-status" style="padding-top:0px; width:100%;">
         <span  id="status" style="font-size: 10px;"></span>
      
       <div  style="float:right; text-align:right; width:200px; font-size: 10px;" class="domain-name"></div>
@@ -197,7 +197,7 @@
   </div>
 </div>
 <div id="setting_modal" class="modal" style="background-color: #fff;">
-  <header class="bar bar-nav">
+  <header class="bar bar-nav  amo_header">
       <a class="icon icon-left-nav pull-left" href="#setting_modal"></a>
     
     <h1 class="title">Settings</h1>
@@ -676,11 +676,12 @@ serve_info();
       var data = JSON.parse(data);
       var cloudbric_network=data.result_info.cloudbric_network;
       var webserver_network=data.result_info.webserver_network;
-      console.log("cloudbric_network : "+cloudbric_network);
-      console.log("webserver_network : "+webserver_network);
-      $("#network-cloudbric").data("status",cloudbric_network);
-      $("#network-server").data("status",webserver_network);
-    },
+      console.log("cloudbric_network : "+cloudbric_network.toLowerCase());
+      console.log("webserver_network : "+webserver_network.toLowerCase());
+      $("#icon1")[0].dataset.status = cloudbric_network.toLowerCase();
+      $("#icon2")[0].dataset.status = webserver_network.toLowerCase();
+      
+          },
     error: function(){
       
     }
@@ -737,14 +738,7 @@ function setting_show() {
     line-height: 16px;
     font-weight: 500;
 }
-.network-stauts-item[data-status="on"]::before {
-    background: url("img/dashboard/sign-check.png") no-repeat center center;
-    background-size: contain;
-}
-.network-stauts-item[data-status="off"]::before {
-    background: url("img/dashboard/sign-error") no-repeat center center;
-    background-size: contain;
-}
+
 .network-stauts-item {
     position: relative;
     flex: 1;
@@ -797,6 +791,30 @@ function setting_show() {
     flex: 1;
     height: 100px;
     margin: 0 20px;
+}
+.network-stauts-item[data-status="on"]::before {
+    background: url("/img/dashboard/sign-check.png") no-repeat center center;
+    background-size: contain;
+}
+
+.network-stauts-item::before {
+    position: absolute;
+    display: block;
+    left: 50%;
+    bottom: -30px;
+    width: 30px;
+    height: 30px;
+    content: '';
+    transform: translateX(-50%);
+}
+
+.network-stauts-item[data-status="on"]::before {
+    background: url("img/dashboard/sign-check.png") no-repeat center center;
+    background-size: contain;
+}
+.network-stauts-item[data-status="off"]::before {
+    background: url("img/dashboard/sign-error.png") no-repeat center center;
+    background-size: contain;
 }
 .item-content {
         margin: 32px 0;
