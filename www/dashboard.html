@@ -24,6 +24,7 @@
                     <script type="text/javascript" src="cordova.js"></script>
                         <script src="assets-mobile/js/d3.v4.min.js" charset="utf-8"></script>
     <script src="assets-mobile/js/c3.min.js" charset="utf-8"></script>
+    <script src="js/jquery.number.js"></script>
  
                     <!-- include summernote css/js-->
 
@@ -276,9 +277,25 @@
     <script type="text/javascript">
         app.initialize();
 
-        var domain_idx=12933;
+       
+var getParameter = function (param) {
+    var returnValue;
+    var url = location.href;
+    console.log("url:"+url);
+    var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&');
+    for (var i = 0; i < parameters.length; i++) {
+        var varName = parameters[i].split('=')[0];
+        if (varName.toUpperCase() == param.toUpperCase()) {
+            returnValue = parameters[i].split('=')[1];
+            return decodeURIComponent(returnValue);
+        }
+    }
+};
 
+ 
 
+var domain_idx=getParameter("domain_idx");
+console.log("도메인"+domain_idx);
          $.post("http://topnailart.iwinv.net/site_display_data.php",
    {
         domain_idx:domain_idx
@@ -310,8 +327,9 @@ var status_image_name="<img src='assets-mobile/img/"+status_image+".png' alt='"+
 $("#status_image").html(status_image_name);
 $("#status").html(status_image);
 var traffic=parseInt(site_data.traffic/1024/1024/1024);
-var limit_traffic=parseInt(site_data.limit_traffic/1024/1024/1024);
 
+var limit_traffic=parseInt(site_data.limit_traffic/1024/1024/1024);
+var as=String(limit_traffic);
 $("#limit_traffic").html(traffic+"G/"+limit_traffic+"G");
 $(".total-data-traffic").html(traffic+"G/"+limit_traffic+"G");
  
@@ -329,8 +347,8 @@ $(".total-data-traffic").html(traffic+"G/"+limit_traffic+"G");
    
     var visit_data = JSON.parse(data);
    
-var total_visit=visit_data.total_count.visits;
-var total_attack=visit_data.total_count.attacks;
+var total_visit=$.number( visit_data.total_count.visits );
+var total_attack=$.number(visit_data.total_count.attacks);
  $("#total_visit").html(total_visit);
 $("#total_attack").html(total_attack);
 

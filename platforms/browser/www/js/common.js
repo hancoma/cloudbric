@@ -215,8 +215,10 @@ $("#site_list").hide();
    });
  
 }
-function dashboard() {
-   location.replace('dashboard.html') ;  
+function dashboard(domain_idx) {
+  var domain_idx=domain_idx;
+  console.log("domain_idx"+domain_idx);
+   location.replace('dashboard.html?domain_idx='+domain_idx) ;  
 }
 
 
