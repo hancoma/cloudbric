@@ -33,6 +33,7 @@
  <plugin name="cordova-universal-links-plugin" source="npm" />
  <plugin name="cordova-plugin-browsertab" source="npm" />
  <plugin name="cordova-plugin-inappbrowser" source="npm" />
+ <plugin name="phonegap-plugin-mobile-accessibility" spec="https://github.com/phonegap/phonegap-mobile-accessibility.git" />
 
 
 <universal-links>
