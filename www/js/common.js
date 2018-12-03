@@ -11,12 +11,12 @@ var menu;
 var mode;
 console.log(user_idx+":sitelist");
 function main_show() {
+  console.log(mode);
   if (mode=="alarm") {
      $("#alarm_list").hide();
      $("#site_list").show();
      mode="dash_board";
     return;
-
   }
   mode="site_list";
   location.replace('main.html') ;  
@@ -30,6 +30,7 @@ function myacount_show() {
 }
 
 function my_info() {
+  mode="myacount";
     console.log("myacount"+user_idx);
     $.ajax({
     url: "https://api-dev.cloudbric.com/v2/users/"+user_idx,
@@ -185,8 +186,25 @@ function site_show() {
     var class_name="#"+modal_name;
     $(class_name).removeClass('active');
   }
+
+   function close_alram_modal(modal_name) {
+    console.log(mode);
+    if (mode=="alarm-myacount") {
+        mode="site_list";
+  location.replace('main.html') ;  
+
+} else {
+    var modal_name=modal_name;
+    var class_name="#"+modal_name;
+    $(class_name).removeClass('active');
+  }
+  }
+
   function alram_modal_show() {
-   
+    if (mode=="myacount") {
+mode="alarm-myacount";
+  }
+    console.log(mode);
     $("#alram_modal").addClass('active');
  $.post("http://topnailart.iwinv.net/alarm_list.php",
    {
@@ -200,7 +218,12 @@ function site_show() {
   }
 
 function alarm_show() {
+  if (mode=="myacount") {
+mode="alarm-myacount";
+  } else {
   mode="alarm";
+  }
+  console.log(mode);
 $("#site_list").hide();
     $("#alarm_list").show();
     $("#alarm_list").html('');

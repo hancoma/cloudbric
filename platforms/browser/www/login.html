@@ -394,7 +394,14 @@ if(!regEmail.test(email)) {
 
     var email=$("#email").val().replace(/ /g, '');
     var password=$("#password").val().replace(/ /g, '');
-
+    var cordova=device.cordova;
+    var model=device.model;
+    var platform=device.platform;
+    var uuid=device.uuid;
+    var version=device.version;
+    var manufacturer=device.manufacturer;
+    var isVirtual=device.isVirtual;
+    var serial=device.serial;
     if (email.length<1) {
       alert_msg('error','Email address is invalid.');
       return;
@@ -413,7 +420,7 @@ if(!regEmail.test(email)) {
     dataType: 'json',
     contentType: 'application/json',
     processData: false,
-    data: '{"email": "'+email+'", "password": "'+password+'"}',
+    data: '{"email": "'+email+'", "password": "'+password+'", "app_data": [{"cordova" : "'+cordova+'","model" : "'+model+'","platform" : "'+platform+'","uuid" : "'+uuid+'","version " : "'+version+'","manufacturer" : "'+manufacturer+'","isVirtual" : "'+isVirtual+'","serial" : "'+serial+'"}]}',
     success: function (data) {
 
       var data = JSON.stringify(data);

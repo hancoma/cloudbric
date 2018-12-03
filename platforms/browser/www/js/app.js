@@ -54,7 +54,10 @@ var app = {
     onmain : function() {
     var reg_id=device.uuid;
        // 기기 번호 검출 
+   
 
+    MobileAccessibility.setTextZoom(100, setTextZoomCallback);
+    
     push = PushNotification.init({
     android: {
         senderID: "754220946157",
@@ -110,7 +113,9 @@ push.on('error', function(e) {
 }
 };
 
-
+ function setTextZoomCallback(textZoom) {
+        console.log('WebView text should be scaled ' + textZoom + '%')
+    }
 
  
 
