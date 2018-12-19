@@ -34,7 +34,7 @@
  <plugin name="cordova-plugin-browsertab" source="npm" />
  <plugin name="cordova-plugin-inappbrowser" source="npm" />
  <plugin name="phonegap-plugin-mobile-accessibility" spec="https://github.com/phonegap/phonegap-mobile-accessibility.git" />
-
+<plugin name="cordova-plugin-app-version" spec="^0.1.9" />
 
 <universal-links>
     <host name="cloudbric.page.link" scheme="https" />
